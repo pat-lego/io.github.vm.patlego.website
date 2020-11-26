@@ -11,13 +11,31 @@
     <module>website.ui</module>
   </modules>
 
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>https://repo1.maven.org/maven2</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>patlego-website</id>
+      <name>GitHub OWNER Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/pat-lego/io.github.vm.patlego.website</url>
+    </repository>
+  </repositories>
+
   <distributionManagement>
-   <repository>
-     <id>patlego-website</id>
-     <name>GitHub OWNER Apache Maven Packages</name>
-     <url>https://maven.pkg.github.com/pat-lego/io.github.vm.patlego.website</url>
-   </repository>
-</distributionManagement>
+    <repository>
+      <id>patlego-website</id>
+      <name>GitHub OWNER Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/pat-lego/io.github.vm.patlego.website</url>
+    </repository>
+  </distributionManagement>
 
   <build>
     <pluginManagement>
