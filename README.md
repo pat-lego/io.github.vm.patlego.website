@@ -1,2 +1,2 @@
-# io.github.vm.patlego.blogs
+# Karaf Based Website
 Blog Engine for the patlego system
