@@ -6,12 +6,16 @@
   <artifactId>website</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>website</name>
-  
+  <name>Website</name>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
   <modules>
     <module>website.ui</module>
+    <module>website.dao</module>
+    <module>website.core</module>
   </modules>
-
   <repositories>
     <repository>
       <id>central</id>
@@ -29,7 +33,6 @@
       <url>https://maven.pkg.github.com/pat-lego/io.github.vm.patlego</url>
     </repository>
   </repositories>
-
   <distributionManagement>
     <repository>
       <id>patlego-website</id>
@@ -37,7 +40,6 @@
       <url>https://maven.pkg.github.com/pat-lego/io.github.vm.patlego.website</url>
     </repository>
   </distributionManagement>
-
   <build>
     <pluginManagement>
       <plugins>
@@ -55,8 +57,7 @@
           <groupId>org.eluder.coveralls</groupId>
           <artifactId>coveralls-maven-plugin</artifactId>
           <version>4.3.0</version>
-          <dependencies>
-            <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+          <dependencies>            <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
             <dependency>
               <groupId>javax.xml.bind</groupId>
               <artifactId>jaxb-api</artifactId>
@@ -235,6 +236,35 @@
         <artifactId>gson</artifactId>
         <version>2.8.6</version>
       </dependency>
+      <dependency>
+        <groupId>javax.transaction</groupId>
+        <artifactId>javax.transaction-api</artifactId>
+        <version>1.2</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.interceptor</groupId>
+        <artifactId>javax.interceptor-api</artifactId>
+        <version>1.2</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>2.2</version>
+        <scope>provided</scope>
+      </dependency>      <!--https://mvnrepository.com/artifact/org.apache.aries.jpa/org.apache.aries.jpa.api-->
+      <dependency>
+        <groupId>org.apache.aries.jpa</groupId>
+        <artifactId>org.apache.aries.jpa.api</artifactId>
+        <version>2.7.2</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+        <version>3.3.2</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
-</project>
+</project> 
