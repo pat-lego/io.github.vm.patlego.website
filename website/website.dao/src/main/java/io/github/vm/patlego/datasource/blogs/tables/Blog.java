@@ -1,4 +1,4 @@
-package io.github.vm.patlego.blogs.dao.tables;
+package io.github.vm.patlego.datasource.blogs.tables;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
