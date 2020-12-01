@@ -2,8 +2,8 @@ package io.github.vm.patlego.datasource.blogs.repo;
 
 import java.util.List;
 
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.apache.aries.jpa.template.JpaTemplate;
 import org.apache.aries.jpa.template.TransactionType;
@@ -22,16 +22,17 @@ public class BlogsDSImpl implements BlogsDS {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Reference(target = "(osgi.unit.name=karafdb-hibernate)")
+    @Reference(target = "(osgi.unit.name=karafdb-hibernate-blogs)")
     private JpaTemplate jpaTemplate;
 
     @Override
     public List<Blog> getBlogs() {
         return this.jpaTemplate.txExpr(TransactionType.RequiresNew, emFunction -> {
-            CriteriaQuery<Blog> criteriaQueryBlogs = emFunction.getCriteriaBuilder()
-                    .createQuery(Blog.class);
-            TypedQuery<Blog> typedQuery = emFunction.createQuery(criteriaQueryBlogs);
-            return typedQuery.getResultList();
+            CriteriaQuery<Blog> criteriaQueryBlogs = emFunction.getCriteriaBuilder().createQuery(Blog.class);
+            Root<Blog> variableRoot = criteriaQueryBlogs.from(Blog.class);
+            
+            criteriaQueryBlogs.select(variableRoot);
+            return emFunction.createQuery(criteriaQueryBlogs).getResultList();
         });
     }
 

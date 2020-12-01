@@ -9,34 +9,39 @@ import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Modified;
+import org.osgi.service.component.annotations.Reference;
 
+import io.github.vm.patlego.datasource.blogs.repo.BlogsDS;
 import io.github.vm.patlego.servlets.blog.impl.BlogsServiceImpl;
 
 @Component
 public class BlogRestService {
-
+    
     private Server server;
 
+    @Reference
+    private BlogsDS blogsDS;
+
     @Activate
-    protected void activate() throws Exception {
+    public void activate() throws Exception {
         JAXRSServerFactoryBean bean = new JAXRSServerFactoryBean();
-        bean.setAddress(BlogServletPath.BLOG_CLASS_PATH + BlogServletPath.BLOG_METHOD_PATH);
+        bean.setAddress(BlogServletPath.BLOG_CLASS_PATH);
         bean.setBus(BusFactory.getDefaultBus());
         bean.setProvider(new JacksonJsonProvider());
-        bean.setServiceBean(new BlogsServiceImpl());
-        this.server = bean.create();
+        bean.setServiceBean(new BlogsServiceImpl(blogsDS));
+        server = bean.create();
     }
 
     @Modified
-    protected void modified() throws Exception {
-        this.deactivate();
-        this.activate();
+    public void modified() throws Exception {
+        deactivate();
+        activate();
     }
 
     @Deactivate
-    protected void deactivate() throws Exception {
+    public void deactivate() throws Exception {
         if (server != null) {
-            this.server.destroy();
+            server.destroy();
         }
     }
-} 
+}
