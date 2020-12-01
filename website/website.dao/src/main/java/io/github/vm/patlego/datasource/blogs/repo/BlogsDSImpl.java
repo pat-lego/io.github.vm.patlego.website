@@ -37,8 +37,8 @@ public class BlogsDSImpl implements BlogsDS {
     }
 
     @Override
-    public Blog getBlog(long id) {
-        if (id > 0) {
+    public Blog getBlog(Long id) {
+        if (id != null && id <= 0) {
             throw new IllegalArgumentException(
                     "Cannot supply an empty or null blog id in the getBlog function definition");
         }

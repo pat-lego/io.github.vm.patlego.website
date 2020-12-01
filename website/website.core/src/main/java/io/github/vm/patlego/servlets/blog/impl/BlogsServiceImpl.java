@@ -1,6 +1,7 @@
 package io.github.vm.patlego.servlets.blog.impl;
 
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import java.util.List;
@@ -24,9 +25,21 @@ public class BlogsServiceImpl implements BlogsService {
     @Path("/")
     @Produces("application/json")
     @GET
+    @Override
     public List<Blog> getBlogs() {
         List<Blog> blogs = blogsDS.getBlogs();
         return blogs;
+    }
+
+    @Path("/{id}")
+    @Produces("application/json")
+    @GET
+    @Override
+    public Blog getBlog(@PathParam("id") Long id) {
+        if (id != null && id > 0) {
+            return this.blogsDS.getBlog(id);
+        }
+        throw new IllegalArgumentException("id for blog must be bigger then 0");
     }
 
 }

@@ -8,5 +8,5 @@ public interface BlogsDS {
 
     public List<Blog> getBlogs();
     
-    public Blog getBlog(long id);
+    public Blog getBlog(Long id);
 }
