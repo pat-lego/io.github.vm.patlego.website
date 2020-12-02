@@ -55,7 +55,6 @@ export default {
       }
     },
     selectedBlog (blogId) {
-      console.log(blogId)
       this.$router.push({ path: `blog/${blogId}` })
     }
   }
