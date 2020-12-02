@@ -8,6 +8,6 @@ describe('Header.vue', () => {
       stubs: ['router-link']
     })
     assert.ok(wrapper)
-    expect(wrapper.html().match(new RegExp('header-item', 'g') || []).length).to.eql(2)
+    expect(wrapper.html().match(new RegExp('header-item', 'g') || []).length).to.eql(3)
   })
 })
