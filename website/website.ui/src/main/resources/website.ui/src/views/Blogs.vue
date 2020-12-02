@@ -14,7 +14,7 @@
                     </tr>
                 </thead>
                 <tbody class="w-4/5">
-                    <tr class="z-0 hover:shadow-md" v-for="blog in blogs" :key="blog.blogId" v-on:click="selectedBlog(blog.blogId)">
+                    <tr class="z-0 hover:shadow-md" v-for="blog in blogs" :key="blog.blogId" v-on:click="selectedBlog(blog)">
                         <th class="pt-10 pb-10">
                             {{blog.blogTitle}}
                         </th>
@@ -54,8 +54,8 @@ export default {
           })
       }
     },
-    selectedBlog (blogId) {
-      this.$router.push({ path: `blog/${blogId}` })
+    selectedBlog (blog) {
+      this.$router.push({ name: 'Blog', params: { id: blog.blogId, blog: blog } })
     }
   }
 }
