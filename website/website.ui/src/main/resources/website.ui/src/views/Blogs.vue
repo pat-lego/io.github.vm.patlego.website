@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     fetchBlogs () {
-      console.log(process.env.NODE_ENV)
       if (process.env.NODE_ENV === 'development') {
         axios
           .get('http://localhost:8181/cxf/patlegovm/1.0/site/blogs')
