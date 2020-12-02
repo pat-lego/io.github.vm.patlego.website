@@ -12,7 +12,7 @@
         <div class="w-1/2 flex justify-center items-center">
           <card-component :card='personal.image' />
         </div>
-        <div class="sm:w-1/2 sm:w-1/2 flex pt-4">
+        <div class="me sm:w-1/2 sm:w-1/2 flex pt-4">
           <profile-component :profile='personal.profile' />
         </div>
     </div>

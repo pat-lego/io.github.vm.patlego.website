@@ -7,11 +7,11 @@ import org.osgi.service.component.annotations.Component;
  * the Contact button to be routed to the Contact page
  */
 @Component(immediate = true, 
-    service = ContactProfileResource.class, 
+    service = BlogsProfileResource.class, 
     property = { 
-        "osgi.http.whiteboard.resource.pattern=/profile/contact/*", 
+        "osgi.http.whiteboard.resource.pattern=/profile/blogs/*", 
         "osgi.http.whiteboard.resource.prefix=/profile"
     })
-public class ContactProfileResource {
+public class BlogsProfileResource {
 
 }
