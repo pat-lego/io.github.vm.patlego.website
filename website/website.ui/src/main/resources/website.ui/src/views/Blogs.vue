@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody class="w-4/5">
-                    <tr class="z-0 hover:shadow-md" v-for="blog in blogs" :key="blog.blogId">
+                    <tr class="z-0 hover:shadow-md" v-for="blog in blogs" :key="blog.blogId" v-on:click="selectedBlog(blog.blogId)">
                         <th class="pt-10 pb-10">
                             {{blog.blogTitle}}
                         </th>
@@ -80,6 +80,10 @@ export default {
             this.blogs = response.data
           })
       }
+    },
+    selectedBlog (blogId) {
+      console.log(blogId)
+      this.$router.push({ path: `blog/${blogId}`, params: { id: blogId } })
     }
   }
 }
