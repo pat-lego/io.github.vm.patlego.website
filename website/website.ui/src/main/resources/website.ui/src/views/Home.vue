@@ -1,13 +1,5 @@
 <template>
   <div>
-    <div class='flex mb-4 w-full'>
-      <div class='w-1/4'>
-        <icon-component />
-      </div>
-      <div class='w-full'>
-        <nav-component />
-      </div>
-    </div>
     <div class='flex flex-col sm:flex-row items-center w-full'>
         <div class="w-1/2 flex justify-center items-center">
           <card-component :card='personal.image' />
@@ -19,11 +11,6 @@
     <div class='flex flex-col mt-6'>
       <timeline-component :timeline='personal.timeline' :sort='"desc"'/>
     </div>
-    <div class="relative h-40">
-      <div class="absolute inset-x-0 bottom-0">
-        <footer-component :footer='footer' />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -34,21 +21,15 @@
  * @description The landing page for the application
  */
 // @ is an alias to /src
-import Header from '@/components/Header.vue'
-import Icon from '@/components/Icon.vue'
 import Card from '@/components/Card.vue'
 import Profile from '@/components/Profile.vue'
-import Footer from '@/components/Footer.vue'
 import Timeline from '@/components/Timeline'
 
 export default {
   name: 'home-view',
   components: {
-    'icon-component': Icon,
-    'nav-component': Header,
     'card-component': Card,
     'profile-component': Profile,
-    'footer-component': Footer,
     'timeline-component': Timeline
   },
   data: () => {
@@ -113,12 +94,6 @@ export default {
             }
           ]
         }
-      },
-      footer: {
-        github: 'https://github.com/pat-lego',
-        twitter: 'https://twitter.com/_patlego',
-        linkedin: 'https://www.linkedin.com/in/patrique-legault/',
-        stackoverflow: 'https://stackoverflow.com/users/8828583/patrique-legault'
       }
     }
   }

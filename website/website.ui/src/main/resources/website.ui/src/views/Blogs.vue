@@ -1,13 +1,5 @@
 <template>
   <div>
-    <div class='flex mb-4 w-full'>
-        <div class='w-1/4'>
-            <icon-component />
-        </div>
-        <div class='w-full'>
-            <nav-component />
-        </div>
-    </div>
     <div class="flex flex-col md:flex-row">
       <div class="flex md:w-2/5 md:pt-40 content-center justify-center">
         <span class="font-bold m-6">Enjoy reading one of our blogs.</span>
@@ -31,34 +23,15 @@
             </table>
       </div>
     </div>
-    <div class="relative h-40">
-      <div class="absolute inset-x-0 bottom-0">
-        <footer-component :footer='footer' />
-      </div>
-    </div>
 </div>
 </template>
 <script>
-import Header from '@/components/Header.vue'
-import Icon from '@/components/Icon.vue'
-import Footer from '@/components/Footer.vue'
 import axios from 'axios'
 export default {
   name: 'blogs-view',
-  components: {
-    'icon-component': Icon,
-    'nav-component': Header,
-    'footer-component': Footer
-  },
   data () {
     return {
-      blogs: undefined,
-      footer: {
-        github: 'https://github.com/pat-lego',
-        twitter: 'https://twitter.com/_patlego',
-        linkedin: 'https://www.linkedin.com/in/patrique-legault/',
-        stackoverflow: 'https://stackoverflow.com/users/8828583/patrique-legault'
-      }
+      blogs: undefined
     }
   },
   created () {
