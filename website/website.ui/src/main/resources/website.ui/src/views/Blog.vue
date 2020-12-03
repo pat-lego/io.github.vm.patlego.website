@@ -38,11 +38,11 @@ export default {
       } else {
         if (process.env.NODE_ENV === 'development') {
           axios
-            .get(`http://localhost:8181/cxf/patlegovm/1.0/site/blogs/${this.$route.params.id}`)
+            .get(`http://localhost:8181/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`)
             .then(response => { this.data = response.data })
         } else {
           axios
-            .get(`/cxf/patlegovm/1.0/site/blogs/${this.$route.params.id}`)
+            .get(`/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`)
             .then(response => { this.data = response.data })
         }
       }

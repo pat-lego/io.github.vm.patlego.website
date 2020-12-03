@@ -54,7 +54,7 @@ export default {
       }
     },
     selectedBlog (blog) {
-      this.$router.push({ name: 'Blog', params: { id: blog.blogId, blog: blog } })
+      this.$router.push({ name: 'Blog', params: { blog: blog }, query: { id: blog.blogId } })
     }
   }
 }
