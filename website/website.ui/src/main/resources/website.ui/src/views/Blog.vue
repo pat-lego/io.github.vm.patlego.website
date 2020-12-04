@@ -1,20 +1,25 @@
 <template>
-    <div v-if="data" class="flex flex-col">
-        <div class="w-full sm:w-3/4">
-            <div class="flex content-center sm:pl-10 pb-5 text-2xl lg:text-3xl xl:text-4xl">
-                {{data.blogTitle}}
-            </div>
-        </div>
-        <div class="flex w-full justify-center content-center">
-            <div class="w-full sm:w-3/4 sm:p-20 bg-gray-100">
-                <div class="blog" v-html="data.blog"></div>
-            </div>
-        </div>
-         <div class="w-fullsm:w-1/2 sm:pl-10 pt-5 pb-5">
-            <div class="flex content-center italic">
-                By: {{data.blogAuthor}}
-            </div>
-         </div>
+    <div class="w-full">
+      <div v-if="data === undefined" class="flex justify-center items-center h-full animate-spin">
+        <font-awesome-icon class="text-6xl hover:text-blue-300" :icon="['fa', 'spinner']" />
+      </div>
+      <div v-if="data" class="flex flex-col">
+          <div class="w-full sm:w-3/4">
+              <div class="flex content-center sm:pl-10 pb-5 text-2xl lg:text-3xl xl:text-4xl">
+                  {{data.blogTitle}}
+              </div>
+          </div>
+          <div class="flex w-full justify-center content-center">
+              <div class="w-full sm:w-3/4 sm:p-20 bg-gray-100">
+                  <div class="blog" v-html="data.blog"></div>
+              </div>
+          </div>
+          <div class="w-fullsm:w-1/2 sm:pl-10 pt-5 pb-5">
+              <div class="flex content-center italic">
+                  By: {{data.blogAuthor}}
+              </div>
+          </div>
+      </div>
     </div>
 </template>
 <script>
@@ -39,10 +44,12 @@ export default {
         if (process.env.NODE_ENV === 'development') {
           axios
             .get(`http://localhost:8181/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`)
+            .then(response => { return new Promise(resolve => setTimeout(() => resolve(response), 500)) })
             .then(response => { this.data = response.data })
         } else {
           axios
             .get(`/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`)
+            .then(response => { return new Promise(resolve => setTimeout(() => resolve(response), 500)) })
             .then(response => { this.data = response.data })
         }
       }
