@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class='flex flex-col sm:flex-row items-center w-full pt-0 sm:pt-3 md:pt-8'>
+    <div class='flex flex-col sm:flex-row items-center w-full pt-2 sm:pt-3 md:pt-8'>
         <div class="w-1/2 flex justify-center items-center">
           <card-component :card='personal.image' />
         </div>
