@@ -2,7 +2,7 @@
   <div id="app" class='flex flex-col w-full'>
     <div>
         <div class='flex mb-4 w-full'>
-            <div class='w-1/4'>
+            <div class='w-1/3'>
                 <icon-component />
             </div>
             <div class='w-full'>
