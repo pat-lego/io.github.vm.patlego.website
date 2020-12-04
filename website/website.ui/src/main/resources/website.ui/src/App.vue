@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class='w-full'>
+  <div id="app" class='flex flex-col w-full'>
     <div>
         <div class='flex mb-4 w-full'>
             <div class='w-1/4'>
@@ -10,14 +10,12 @@
             </div>
         </div>
     </div>
-    <div class="component">
+    <div class="flex w-full component">
         <router-view />
     </div>
-    <div class="relative h-40">
-        <div class="absolute inset-x-0 bottom-0">
+    <div class="flex h-40 pt-10 w-full">
             <footer-component :footer='footer' />
-        </div>
-    </div>
+     </div>
 </div>
 </template>
 <script>
@@ -52,5 +50,8 @@ export default {
 }
 * {
    font-family: "Roboto" !important;
+}
+.component {
+  min-height: 80vh;
 }
 </style>
