@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex flex-col md:flex-row">
-      <div class="flex md:w-2/5 md:pt-40 content-center justify-center">
+      <div class="flex md:w-2/5 items-center justify-center">
         <span class="font-bold m-6">Enjoy reading one of our blogs.</span>
       </div>
       <div class="flex md:w-3/5 md:pt-10 content-center justify-center">
