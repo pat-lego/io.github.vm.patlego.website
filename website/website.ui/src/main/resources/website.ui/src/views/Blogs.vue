@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="blogs">
     <div class="flex flex-col md:flex-row">
       <div class="flex md:w-2/5 items-center justify-center">
         <span class="font-bold m-6">Enjoy reading one of our blogs.</span>
