@@ -1,8 +1,8 @@
 <template>
   <div v-if="blogs">
     <div class="flex flex-col md:flex-row">
-      <div class="flex md:w-2/5 items-center justify-center">
-        <span class="font-bold m-6">Enjoy reading one of our blogs.</span>
+      <div class="flex items-center justify-center h-auto md:h-48 w-full md:w-2/5">
+        <div class="font-bold m-6">Enjoy reading one of our blogs.</div>
       </div>
       <div class="flex md:w-3/5 md:pt-10 content-center justify-center">
             <table class="w-full">

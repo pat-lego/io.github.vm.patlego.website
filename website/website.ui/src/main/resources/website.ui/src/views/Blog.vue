@@ -1,17 +1,17 @@
 <template>
     <div v-if="data" class="flex flex-col">
-        <div class="w-1/4">
-            <div class="flex content-center pl-10 pb-5 sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl">
+        <div class="w-full sm:w-3/4">
+            <div class="flex content-center sm:pl-10 pb-5 text-2xl lg:text-3xl xl:text-4xl">
                 {{data.blogTitle}}
             </div>
         </div>
         <div class="flex w-full justify-center content-center">
-            <div class="w-3/4 p-20 bg-gray-100">
+            <div class="w-full sm:w-3/4 sm:p-20 bg-gray-100">
                 <div class="blog" v-html="data.blog"></div>
             </div>
         </div>
-         <div class="p-4 w-1/4">
-            <div class="flex content-center pl-10 pt-5 italic">
+         <div class="w-fullsm:w-1/2 sm:pl-10 pt-5 pb-5">
+            <div class="flex content-center italic">
                 By: {{data.blogAuthor}}
             </div>
          </div>
