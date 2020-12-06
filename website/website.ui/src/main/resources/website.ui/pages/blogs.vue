@@ -40,7 +40,7 @@
                   class="flex content-center	items-center justify-center z-0 hover:shadow-md"
                   v-for="blog in blogs"
                   :key="blog.blogId"
-                  :to="{ path: '/profile/blog', query: { id: blog.blogId } }">
+                  :to="{ path: '/blog', query: { id: blog.blogId } }">
                   <tr>
                     <th class="pt-10 pb-10">{{blog.blogTitle}}</th>
                   </tr>
