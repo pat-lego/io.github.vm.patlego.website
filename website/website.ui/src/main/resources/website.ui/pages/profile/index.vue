@@ -1,26 +1,41 @@
 <template>
+  <div id="app" class="flex flex-col w-full">
   <div>
-    <div class='flex flex-col sm:flex-row items-center w-full pt-2 sm:pt-3 md:pt-8'>
-        <div class="w-1/2 flex justify-center items-center">
-          <card-component :card='personal.image' />
-        </div>
-        <div class="me sm:w-1/2 sm:w-1/2 flex pt-4">
-          <profile-component :profile='personal.profile' />
-        </div>
-    </div>
-    <div class='flex flex-col mt-6'>
-      <timeline-component :timeline='personal.timeline' :sort='"desc"'/>
+    <div class="flex mb-4 h-10 w-full">
+      <div class="flex w-1/3">
+        <icon-component />
+      </div>
+      <div class="flex w-full">
+        <nav-component />
+      </div>
     </div>
   </div>
+  <div class="flex w-full component">
+    <div>
+      <div
+        class="flex flex-col sm:flex-row items-center w-full pt-2 sm:pt-3 md:pt-8"
+      >
+        <div class="w-1/2 flex justify-center items-center">
+          <card-component :card="personal.image" />
+        </div>
+        <div class="me sm:w-1/2 flex pt-4">
+          <profile-component :profile="personal.profile" />
+        </div>
+      </div>
+      <div class="flex flex-col mt-6">
+        <timeline-component :timeline="personal.timeline" :sort='"desc"' />
+      </div>
+    </div>
+  </div>
+  <div class="flex h-40 pt-10 w-full">
+    <footer-component :footer="footer" />
+  </div>
+</div>
 </template>
-
 <script>
-/**
- * @author pat-lego <patrique.legault@gmail.com>
- * @memberof views
- * @description The landing page for the application
- */
-// @ is an alias to /src
+import Header from '@/components/Header.vue'
+import Icon from '@/components/Icon.vue'
+import Footer from '@/components/Footer.vue'
 import Card from '@/components/Card.vue'
 import Profile from '@/components/Profile.vue'
 import Timeline from '@/components/Timeline'
@@ -28,6 +43,9 @@ import Timeline from '@/components/Timeline'
 export default {
   name: 'home-view',
   components: {
+    'icon-component': Icon,
+    'nav-component': Header,
+    'footer-component': Footer,
     'card-component': Card,
     'profile-component': Profile,
     'timeline-component': Timeline
@@ -94,8 +112,28 @@ export default {
             }
           ]
         }
+      },
+      footer: {
+        github: 'https://github.com/pat-lego',
+        twitter: 'https://twitter.com/_patlego',
+        linkedin: 'https://www.linkedin.com/in/patrique-legault/',
+        stackoverflow: 'https://stackoverflow.com/users/8828583/patrique-legault'
       }
     }
   }
 }
 </script>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+   font-family: "Roboto" !important;
+}
+.component {
+  min-height: 80vh;
+}
+</style>

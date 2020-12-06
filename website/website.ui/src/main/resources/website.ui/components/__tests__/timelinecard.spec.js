@@ -1,4 +1,3 @@
-import { assert, expect } from 'chai'
 import TimelineCard from '@/components/TimelineCard'
 import { shallowMount } from '@vue/test-utils'
 
@@ -12,8 +11,7 @@ describe('TimelineCard.vue', () => {
         }
       }
     })
-    assert.ok(wrapper)
-    expect(wrapper.html()).to.contain('One of my tasks')
-    expect(wrapper.html()).to.contain(2020)
+    expect(wrapper.html()).toContain('One of my tasks')
+    expect(wrapper.html()).toContain(2020)
   })
 })

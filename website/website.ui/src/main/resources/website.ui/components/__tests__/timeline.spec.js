@@ -1,4 +1,3 @@
-import { assert, expect } from 'chai'
 import { mount } from '@vue/test-utils'
 import Timeline from '@/components/Timeline.vue'
 import TimelineCard from '@/components/TimelineCard'
@@ -35,9 +34,8 @@ describe('Timeline.vue', () => {
         TimelineCard
       }
     })
-    assert.ok(wrapper) // Truthy
     const data = wrapper.vm.sortTimeline
-    expect(data).to.eql([
+    expect(data).toEqual([
       {
         title: 'Software Developer',
         description: ['I developed an algorithm at Laurentian University to measure the energy of various chemical structures using Mathematica',
@@ -91,9 +89,8 @@ describe('Timeline.vue', () => {
         TimelineCard
       }
     })
-    assert.ok(wrapper) // Truthy
     const data = wrapper.vm.sortTimeline
-    expect(data).to.eql([
+    expect(data).toEqual([
       {
         title: 'Senior Systems Analyst',
         description: ['Worked on various projects involving Adobe Experience Manager and Forms',

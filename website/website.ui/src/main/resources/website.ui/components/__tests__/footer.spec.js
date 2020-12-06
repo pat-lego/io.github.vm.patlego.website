@@ -1,4 +1,3 @@
-import { expect } from 'chai'
 import { shallowMount } from '@vue/test-utils'
 import Footer from '@/components/Footer.vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -17,9 +16,9 @@ describe('Footer.vue', () => {
         FontAwesomeIcon
       }
     })
-    expect(wrapper.html()).to.include(footer.linkedin)
-    expect(wrapper.html()).to.include(footer.twitter)
-    expect(wrapper.html()).to.include(footer.stackoverflow)
-    expect(wrapper.html()).to.include(footer.github)
+    expect(wrapper.html()).toContain(footer.linkedin)
+    expect(wrapper.html()).toContain(footer.twitter)
+    expect(wrapper.html()).toContain(footer.stackoverflow)
+    expect(wrapper.html()).toContain(footer.github)
   })
 })

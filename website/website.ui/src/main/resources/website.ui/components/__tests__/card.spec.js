@@ -1,4 +1,3 @@
-import { assert, expect } from 'chai'
 import Card from '@/components/Card.vue'
 import { shallowMount } from '@vue/test-utils'
 
@@ -13,15 +12,14 @@ describe('Card.vue with card', () => {
         }
       }
     })
-    assert.ok(wrapper)
-    expect(wrapper.html()).to.contain('This is my title')
-    expect(wrapper.html()).to.contain('Alternative Text')
+    expect(wrapper).toBeTruthy()
+    expect(wrapper.html()).toContain('This is my title')
+    expect(wrapper.html()).toContain('Alternative Text')
   })
 
   it('render card without card', () => {
     const wrapper = shallowMount(Card)
-    assert.ok(wrapper)
-    expect(wrapper.html()).to.not.contain('This is my title')
-    expect(wrapper.html()).to.not.contain('Alternative Text')
+    expect(wrapper.html()).not.toContain('This is my title')
+    expect(wrapper.html()).not.toContain('Alternative Text')
   })
 })

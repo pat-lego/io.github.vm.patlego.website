@@ -36,3 +36,6 @@ karaf-system/system.features/src/main/resources/features.xml
 # node dependencies
 node_modules/
 karaf-system/system.sql/src/main/resources/org/postgres/jdbc.properties
+.nuxt/
+dist/
+coverage/
