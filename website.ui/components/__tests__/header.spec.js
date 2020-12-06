@@ -6,7 +6,6 @@ describe('Header.vue', () => {
     const wrapper = shallowMount(Header, {
       stubs: ['router-link']
     })
-    assert.ok(wrapper)
     expect(wrapper.html().match(new RegExp('header-item', 'g') || []).length).toEqual(3)
   })
 })

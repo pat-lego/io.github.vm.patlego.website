@@ -4,9 +4,11 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "start": "nuxt start"
+    "start": "nuxt start",
+    "test:unit": "jest"
   },
   "dependencies": {
+    "@babel/preset-env": "^7.12.7",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
@@ -14,10 +16,17 @@
     "nuxt": "^2.14.9"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.9",
     "@nuxtjs/tailwindcss": "^3.3.3",
+    "@vue/test-utils": "^1.1.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "jest-serializer-vue": "^2.0.2",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.0.0",
     "sass": "^1.30.0",
-    "sass-loader": "^10.1.0"
+    "sass-loader": "^10.1.0",
+    "vue-jest": "^3.0.7"
   }
 }

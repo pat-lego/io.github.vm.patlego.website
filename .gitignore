@@ -38,3 +38,4 @@ node_modules/
 karaf-system/system.sql/src/main/resources/org/postgres/jdbc.properties
 .nuxt/
 dist/
+coverage/

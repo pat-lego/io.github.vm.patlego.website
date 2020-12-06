@@ -2,7 +2,7 @@
   <div v-if="card" class="w-64 h-full rounded-lg bg-gray-100 border hover:shadow-lg duration-500">
     <div class="flex flex-col items-center">
       <div class="p-4">
-        <img :src="require('~/assets/images/' + card.imageUrl)" :alt="card.imageAlt" />
+        <img :src="require('../assets/images/' + card.imageUrl)" :alt="card.imageAlt" />
       </div>
       <h4 class="font-bold text-center">{{card.imageTitle}}</h4>
     </div>
