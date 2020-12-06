@@ -1,3 +1,4 @@
+import { assert, expect } from 'chai'
 import Header from '@/components/Header.vue'
 import { shallowMount } from '@vue/test-utils'
 
@@ -7,6 +8,6 @@ describe('Header.vue', () => {
       stubs: ['router-link']
     })
     assert.ok(wrapper)
-    expect(wrapper.html().match(new RegExp('header-item', 'g') || []).length).toEqual(3)
+    expect(wrapper.html().match(new RegExp('header-item', 'g') || []).length).to.eql(3)
   })
 })
