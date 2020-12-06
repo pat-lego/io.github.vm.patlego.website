@@ -89,7 +89,7 @@ export default {
           .$get('http://localhost:8181/cxf/patlegovm/1.0/site/blogs')
       } else {
         this.blogs = await this.$axios
-          .$get('http://localhost:8181/cxf/patlegovm/1.0/site/blogs')
+          .$get('/cxf/patlegovm/1.0/site/blogs')
       }
     }
   }
