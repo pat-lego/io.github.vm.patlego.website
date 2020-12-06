@@ -20,4 +20,8 @@ export default {
       brands: true,
     },
   },
+  plugins: [{
+    src: '~/plugins/hotjar.js',
+    mode: 'client'
+  }]
 };
