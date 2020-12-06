@@ -52,6 +52,9 @@
             <_dsannotations>*</_dsannotations>
             <!-- Enable processing of OSGI metatype annotations -->
             <_metatypeannotations>*</_metatypeannotations>
+            <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+            <Bundle-SymbolicName>${project.groupId}-${project.artifactId}-${project.version}</Bundle-SymbolicName>
+            <Web-ContextPath>/profile</Web-ContextPath>
           </instructions>
         </configuration>
       </plugin>
