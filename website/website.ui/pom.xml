@@ -95,7 +95,7 @@
               <goal>npm</goal>
             </goals>
             <configuration>
-              <arguments>run build</arguments>
+              <arguments>run generate</arguments>
             </configuration>
           </execution>
         </executions>
