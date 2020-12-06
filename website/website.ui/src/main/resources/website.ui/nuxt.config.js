@@ -24,5 +24,5 @@ export default {
     src: '~/plugins/hotjar.js',
     mode: 'client'
   }],
-  modules: ['@nuxtjs/axios']
+  modules: ['@nuxt/http']
 };

@@ -69,23 +69,17 @@ export default {
     }
   },
   async fetch () {
-    this.getData()
-  },
-  methods: {
-    async getData () {
-      if (this.blog) {
+    if (this.blog) {
         this.data = this.blog
+    } else {
+      if (process.env.NODE_ENV === 'development') {
+        this.data = await fetch(`http://localhost:8181/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`).then(res => res.json())
       } else {
-        if (process.env.NODE_ENV === 'development') {
-          this.data = await this.$axios
-            .$get(`http://localhost:8181/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`)
-        } else {
-          this.data = await this.$axios
-            .$get(`/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`)
-        }
+        this.data = await fetch(`/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`).then(res => res.json())
       }
     }
-  }
+  },
+  fetchOnServer: false
 }
 </script>
 <style scoped>

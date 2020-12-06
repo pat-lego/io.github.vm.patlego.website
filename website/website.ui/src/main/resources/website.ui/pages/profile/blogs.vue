@@ -40,7 +40,7 @@
                   class="flex content-center	items-center justify-center z-0 hover:shadow-md"
                   v-for="blog in blogs"
                   :key="blog.blogId"
-                  :to="{ path: '/blog', query: { id: blog.blogId } }">
+                  :to="{ path: '/profile/blog', query: { id: blog.blogId } }">
                   <tr>
                     <th class="pt-10 pb-10">{{blog.blogTitle}}</th>
                   </tr>
@@ -70,7 +70,6 @@ export default {
   },
   data () {
     return {
-      blogs: undefined,
       footer: {
         github: 'https://github.com/pat-lego',
         twitter: 'https://twitter.com/_patlego',
@@ -79,18 +78,13 @@ export default {
       }
     }
   },
-  async fetch () {
-    await this.fetchBlogs()
-  },
-  methods: {
-    async fetchBlogs () {
-      if (process.env.NODE_ENV === 'development') {
-        this.blogs = await this.$axios
-          .$get('http://localhost:8181/cxf/patlegovm/1.0/site/blogs')
-      } else {
-        this.blogs = await this.$axios
-          .$get('/cxf/patlegovm/1.0/site/blogs')
-      }
+  async asyncData ({ $http }) {
+    if (process.env.NODE_ENV === 'development') {
+      const blogs = await $http.$get('http://localhost:8181/cxf/patlegovm/1.0/site/blogs')
+      return { blogs }
+    } else {
+      const blogs = await $http.$get('/cxf/patlegovm/1.0/site/blogs')
+      return { blogs }
     }
   }
 }
