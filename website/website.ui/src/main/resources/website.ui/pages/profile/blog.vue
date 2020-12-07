@@ -13,7 +13,7 @@
   <div class="flex w-full component">
     <div
       v-if="data === undefined"
-      class="flex justify-center items-center h-full animate-spin"
+      class="flex justify-center items-center w-full h-52 animate-spin"
     >
       <font-awesome-icon
         class="text-6xl hover:text-blue-300"
