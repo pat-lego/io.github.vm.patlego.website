@@ -78,12 +78,12 @@ export default {
       }
     }
   },
-  async asyncData ({ $http }) {
+  async asyncData ({$http}) {
     if (process.env.NODE_ENV === 'development') {
-      const blogs = await $http.$get('http://localhost:8181/cxf/patlegovm/1.0/site/blogs')
+      const blogs = await $http.get('http://localhost:8181/cxf/patlegovm/1.0/site/blogs')
       return { blogs }
     } else {
-      const blogs = await $http.$get('/cxf/patlegovm/1.0/site/blogs')
+      const blogs = await $http.get('/cxf/patlegovm/1.0/site/blogs')
       return { blogs }
     }
   }
