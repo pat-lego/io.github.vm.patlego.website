@@ -1,4 +1,7 @@
 export default {
+  router: {
+    base: '/patlego/'
+  },
   head: {
     title: "Patrique Legault",
     meta: [

@@ -54,7 +54,7 @@
             <_metatypeannotations>*</_metatypeannotations>
             <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
             <Bundle-SymbolicName>${project.groupId}-${project.artifactId}-${project.version}</Bundle-SymbolicName>
-            <Web-ContextPath>/</Web-ContextPath>
+            <Web-ContextPath>/patlego</Web-ContextPath>
           </instructions>
         </configuration>
       </plugin>
