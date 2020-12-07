@@ -26,5 +26,9 @@ export default {
     src: '~/plugins/hotjar.js',
     mode: 'client'
   }],
-  modules: ['@nuxt/http']
+  modules: ['@nuxt/http'],
+  css: [
+    '~/assets/css/roboto.css',
+    '~/assets/css/component.css'
+  ]
 };
