@@ -70,6 +70,7 @@ export default {
   },
   data () {
     return {
+      blogs: undefined,
       footer: {
         github: 'https://github.com/pat-lego',
         twitter: 'https://twitter.com/_patlego',
@@ -78,14 +79,13 @@ export default {
       }
     }
   },
-  async asyncData ({$http}) {
+  async fetch () {
     if (process.env.NODE_ENV === 'development') {
-      const blogs = await $http.get('http://localhost:8181/cxf/patlegovm/1.0/site/blogs')
-      return { blogs }
+      this.blogs = await fetch('http://localhost:8181/cxf/patlegovm/1.0/site/blogs').then(res => res.json())
     } else {
-      const blogs = await $http.get('/cxf/patlegovm/1.0/site/blogs')
-      return { blogs }
+      this.blogs = await fetch('/cxf/patlegovm/1.0/site/blogs').then(res => res.json())
     }
-  }
+  },
+  fetchOnServer: false
 }
 </script>
