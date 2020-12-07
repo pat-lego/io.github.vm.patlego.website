@@ -9,8 +9,7 @@ export default {
         name: "description",
         content: "My personal website",
       },
-    ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "~/assets/favicon.ico" }],
+    ]
   },
   target: "static",
   buildModules: ["@nuxtjs/tailwindcss", "@nuxtjs/fontawesome"],

@@ -54,9 +54,6 @@ export default {
     'nav-component': Header,
     'footer-component': Footer
   },
-  props: {
-    blog: Object
-  },
   data: () => {
     return {
       data: undefined,
@@ -69,14 +66,10 @@ export default {
     }
   },
   async fetch () {
-    if (this.blog) {
-        this.data = this.blog
+    if (process.env.NODE_ENV === 'development') {
+      this.data = await fetch(`http://localhost:8181/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`).then(res => res.json())
     } else {
-      if (process.env.NODE_ENV === 'development') {
-        this.data = await fetch(`http://localhost:8181/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`).then(res => res.json())
-      } else {
-        this.data = await fetch(`/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`).then(res => res.json())
-      }
+      this.data = await fetch(`/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`).then(res => res.json())
     }
   },
   fetchOnServer: false
