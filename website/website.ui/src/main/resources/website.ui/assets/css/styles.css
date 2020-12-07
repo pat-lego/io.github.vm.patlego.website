@@ -1,0 +1,7 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.component {
+    min-height: 80vh;
+  }

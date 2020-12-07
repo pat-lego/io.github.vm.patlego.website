@@ -29,6 +29,6 @@ export default {
   modules: ['@nuxt/http'],
   css: [
     '~/assets/css/roboto.css',
-    '~/assets/css/component.css'
+    '~/assets/css/styles.css',
   ]
 };
