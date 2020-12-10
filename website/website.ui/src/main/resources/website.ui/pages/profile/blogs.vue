@@ -11,45 +11,56 @@
     </div>
   </div>
   <div class="flex w-full component">
-    <div class="w-full">
-      <div
-        v-if="blogs === undefined"
-        class="flex justify-center items-center h-full animate-spin"
-      >
-        <font-awesome-icon
-          class="text-6xl hover:text-blue-300"
-          :icon="['fa', 'spinner']"
-        />
-      </div>
-      <div v-if="blogs" class="w-full">
-        <div class="flex flex-col md:flex-row">
-          <div
-            class="flex items-center justify-center h-auto md:h-48 w-full md:w-2/5"
-          >
-            <div class="font-bold m-6">Enjoy reading one of our blogs.</div>
-          </div>
-          <div class="flex md:w-3/5 md:pt-10 content-center justify-center">
-            <table class="w-full">
-              <thead class="w-full bg-blue-100">
+    <div
+      v-if="blogs === undefined"
+      class="flex justify-center items-center w-full h-52 animate-spin"
+    >
+      <font-awesome-icon
+        class="text-6xl hover:text-blue-300"
+        :icon="['fa', 'spinner']"
+      />
+    </div>
+    <div v-else-if="blogs !== error" class="w-full">
+      <div class="flex flex-col md:flex-row">
+        <div
+          class="flex items-center justify-center h-auto md:h-48 w-full md:w-2/5"
+        >
+          <div class="font-bold m-6">Enjoy reading one of our blogs.</div>
+        </div>
+        <div class="flex md:w-3/5 md:pt-10 content-center justify-center">
+          <table class="w-full">
+            <thead class="w-full bg-blue-100">
+              <tr>
+                <th class="pt-4 pb-10">Blog Title</th>
+              </tr>
+            </thead>
+            <tbody class="w-full">
+              <NuxtLink
+                class="flex content-center items-center justify-center z-0 hover:shadow-md"
+                v-for="blog in blogs"
+                :key="blog.blogId"
+                :to="{ path: '/profile/blog', query: { id: blog.blogId } }"
+              >
                 <tr>
-                  <th class="pt-4 pb-10">Blog Title</th>
+                  <th class="pt-10 pb-10">{{blog.blogTitle}}</th>
                 </tr>
-              </thead>
-              <tbody class="w-full">
-                <NuxtLink 
-                  class="flex content-center	items-center justify-center z-0 hover:shadow-md"
-                  v-for="blog in blogs"
-                  :key="blog.blogId"
-                  :to="{ path: '/profile/blog', query: { id: blog.blogId } }">
-                  <tr>
-                    <th class="pt-10 pb-10">{{blog.blogTitle}}</th>
-                  </tr>
-                </NuxtLink>
-              </tbody>
-            </table>
-          </div>
+              </NuxtLink>
+            </tbody>
+          </table>
         </div>
       </div>
+    </div>
+    <div
+      v-else
+      class="flex flex-col justify-center items-center align-middle w-full"
+    >
+      <div>
+        <font-awesome-icon
+          class="fa-10x hover:text-blue-300"
+          :icon="['fa', 'exclamation-triangle']"
+        />
+      </div>
+      <div class="pt-5 italic">{{error }} loading the blogs</div>
     </div>
   </div>
   <div class="flex h-40 pt-10 w-full">
@@ -70,6 +81,7 @@ export default {
   },
   data () {
     return {
+      error: 'An error occured',
       blogs: undefined,
       footer: {
         github: 'https://github.com/pat-lego',
@@ -81,9 +93,18 @@ export default {
   },
   async fetch () {
     if (process.env.NODE_ENV === 'development') {
-      this.blogs = await fetch('http://localhost:8181/cxf/patlegovm/1.0/site/blogs').then(res => res.json())
+      try {
+        this.blogs = await fetch('http://localhost:8181/cxf/patlegovm/1.0/site/blogs').then(res => res.json())
+      } catch (e) {
+        this.blogs = this.error
+      }
     } else {
-      this.blogs = await fetch('/cxf/patlegovm/1.0/site/blogs').then(res => res.json())
+      try {
+        this.blogs = await fetch('/cxf/patlegovm/1.0/site/blogs').then(res => res.json())
+      } catch (e) {
+        this.blogs = this.error
+      }
+      
     }
   },
   fetchOnServer: false

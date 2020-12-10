@@ -20,7 +20,7 @@
         :icon="['fa', 'spinner']"
       />
     </div>
-    <div v-if="data" class="flex flex-col">
+    <div v-else-if="data !== error" class="flex flex-col">
       <div class="w-full sm:w-3/4">
         <div
           class="flex content-center sm:pl-10 pb-5 text-2xl lg:text-3xl xl:text-4xl"
@@ -35,6 +35,17 @@
       </div>
       <div class="w-fullsm:w-1/2 sm:pl-10 pt-5 pb-5">
         <div class="flex content-center italic">By: {{data.blogAuthor}}</div>
+      </div>
+    </div>
+    <div v-else class='flex flex-col justify-center items-center align-middle w-full'>
+        <div>
+          <font-awesome-icon
+          class="fa-10x hover:text-blue-300"
+          :icon="['fa', 'exclamation-triangle']"
+        />
+      </div>
+      <div class="pt-5 italic">
+        {{data}} loading the blog
       </div>
     </div>
   </div>
@@ -56,6 +67,7 @@ export default {
   },
   data: () => {
     return {
+      error: 'An error occured',
       data: undefined,
       footer: {
         github: 'https://github.com/pat-lego',
@@ -67,9 +79,18 @@ export default {
   },
   async fetch () {
     if (process.env.NODE_ENV === 'development') {
-      this.data = await fetch(`http://localhost:8181/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`).then(res => res.json())
+      try {
+        this.data = await fetch(`http://localhost:8181/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`).then(res => res.json())
+      } catch (e) {
+        this.data = this.error
+      }
     } else {
+      try {
       this.data = await fetch(`/cxf/patlegovm/1.0/site/blogs/${this.$route.query.id}`).then(res => res.json())
+      }
+      catch (e) {
+        this.data = this.error
+      }
     }
   },
   fetchOnServer: false
