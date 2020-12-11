@@ -12,6 +12,27 @@ export default {
         name: "description",
         content: "My personal website",
       },
+      // Open Graph Tags
+      {
+        hid: "og:title",
+        name: "og:title",
+        content: "Patrique Legault"
+      },
+      {
+        hid: "og:description",
+        name: "og:description",
+        content: "Development without limits"
+      },
+      {
+        hid: "og:image",
+        name: "og:image",
+        content: "https://drive.google.com/file/d/1kDBpd180V1WkBaoaRPunXG4w2PeSiZQO/view?usp=sharing"
+      },
+      {
+        hid: "og:url",
+        name: "og:url",
+        content: "https://www.pat-lego.com/patlego/profile"
+      }
     ]
   },
   target: "static",
