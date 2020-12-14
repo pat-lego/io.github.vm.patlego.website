@@ -119,6 +119,17 @@ export default {
       ],
     };
   },
+  /**
+   * This fetch invocation is performed on the client, as you can see below the fetchOnServer parameter is set to false.
+   * In comparison fetch and asyncData are both used to retrieve data on the server and then merge it into the page template. 
+   * This is not something that works well when generating static HTML since there is no server rendering the HTML page.
+   * 
+   * If external data is to be fixed for a long period of time then using asyncData
+   * is a wise investment.
+   * 
+   * Refer to these options when using asyncData as it needs to know the external service endpoint in order to retrieve the data 
+   * at build time https://http.nuxtjs.org/options/
+   */
   async fetch() {
     if (process.env.NODE_ENV === "development") {
       try {
