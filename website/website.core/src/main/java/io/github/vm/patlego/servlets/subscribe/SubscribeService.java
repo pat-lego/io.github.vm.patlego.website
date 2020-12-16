@@ -1,6 +1,10 @@
 package io.github.vm.patlego.servlets.subscribe;
 
+import io.github.vm.patlego.datasource.subscribe.tables.Subscribe;
+
 public interface SubscribeService {
     
-    public void addSubscription(Subscriber subscriber);
+    public Subscribe addSubscription(Subscribe subscriber);
+
+    public Subscribe deleteSubscription(Subscribe subscriber);
 }

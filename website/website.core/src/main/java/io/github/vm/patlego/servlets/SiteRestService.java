@@ -12,6 +12,7 @@ import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
 
 import io.github.vm.patlego.datasource.blogs.repo.BlogsDS;
+import io.github.vm.patlego.datasource.subscribe.repo.SubscribeDS;
 import io.github.vm.patlego.servlets.blog.impl.BlogsServiceImpl;
 import io.github.vm.patlego.servlets.subscribe.impl.SubscriberServiceImpl;
 
@@ -23,6 +24,9 @@ public class SiteRestService {
     @Reference
     private BlogsDS blogsDS;
 
+    @Reference
+    private SubscribeDS subscribeDS;
+
     @Activate
     public void activate() throws Exception {
         JAXRSServerFactoryBean bean = new JAXRSServerFactoryBean();
@@ -30,7 +34,7 @@ public class SiteRestService {
         bean.setBus(BusFactory.getDefaultBus());
         bean.setProvider(new JacksonJsonProvider());
         bean.setServiceBean(new BlogsServiceImpl(blogsDS));
-        bean.setServiceBean(new SubscriberServiceImpl());
+        bean.setServiceBean(new SubscriberServiceImpl(subscribeDS));
         server = bean.create();
     }
 
