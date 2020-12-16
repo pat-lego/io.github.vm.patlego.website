@@ -1,4 +1,4 @@
-package io.github.vm.patlego.servlets.blog;
+package io.github.vm.patlego.servlets;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
@@ -13,9 +13,10 @@ import org.osgi.service.component.annotations.Reference;
 
 import io.github.vm.patlego.datasource.blogs.repo.BlogsDS;
 import io.github.vm.patlego.servlets.blog.impl.BlogsServiceImpl;
+import io.github.vm.patlego.servlets.subscribe.impl.SubscriberServiceImpl;
 
 @Component
-public class BlogRestService {
+public class SiteRestService {
     
     private Server server;
 
@@ -25,10 +26,11 @@ public class BlogRestService {
     @Activate
     public void activate() throws Exception {
         JAXRSServerFactoryBean bean = new JAXRSServerFactoryBean();
-        bean.setAddress(BlogServletPath.BLOG_CLASS_PATH);
+        bean.setAddress(SiteServletPath.SITE_CLASS_PATH);
         bean.setBus(BusFactory.getDefaultBus());
         bean.setProvider(new JacksonJsonProvider());
         bean.setServiceBean(new BlogsServiceImpl(blogsDS));
+        bean.setServiceBean(new SubscriberServiceImpl());
         server = bean.create();
     }
 
