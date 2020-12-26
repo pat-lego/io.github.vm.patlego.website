@@ -302,6 +302,12 @@
         <version>${project.version}</version>
         <scope>provided</scope>
       </dependency>
+      <dependency>
+        <groupId>io.github.vm.patlego</groupId>
+        <artifactId>website.dao</artifactId>
+        <version>${project.version}</version>
+        <scope>provided</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 </project> 

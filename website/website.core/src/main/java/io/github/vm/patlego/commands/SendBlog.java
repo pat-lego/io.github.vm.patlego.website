@@ -9,6 +9,7 @@ import org.apache.karaf.shell.api.action.lifecycle.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.github.vm.patlego.datasource.subscribe.repo.SubscribeDS;
 import io.github.vm.patlego.email.EmailService;
 import io.github.vm.patlego.email.bean.EmailContent;
 import io.github.vm.patlego.impl.DefaultEmailRecipient;
@@ -23,6 +24,9 @@ import org.apache.commons.lang3.StringUtils;
 public class SendBlog implements Action {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Reference
+    private SubscribeDS subscribeDS;
 
     @Reference(filter = "(patlego.email=default)")
     private EmailService emailService;

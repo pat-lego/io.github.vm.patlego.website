@@ -141,5 +141,9 @@
       <groupId>io.github.vm.patlego</groupId>
       <artifactId>system.email</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.github.vm.patlego</groupId>
+      <artifactId>website.dao</artifactId>
+    </dependency>
   </dependencies>
 </project>
