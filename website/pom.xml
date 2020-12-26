@@ -290,6 +290,18 @@
         <artifactId>org.apache.karaf.shell.core</artifactId>
         <version>${karaf.runtime.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.9</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.github.vm.patlego</groupId>
+        <artifactId>system.email</artifactId>
+        <version>${project.version}</version>
+        <scope>provided</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 </project> 
