@@ -31,6 +31,7 @@ import java.util.Map;
 import javax.mail.internet.InternetAddress;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 
 @Service
 @Command(scope = "patlego", name = "sendblog", description = "Sends out a blog to all of the users who subscribed to receive our blog")
@@ -107,8 +108,14 @@ public class SendBlog implements Action {
 
     public Templater getTemplater(Subscribe subscribe) throws IOException {
         Map<String, String> mapValues = new HashMap<String, String>();
-        mapValues.put("firstName", subscribe.getFirstName());
-        mapValues.put("lastName", subscribe.getLastName());
+        if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty() && subscribe.getLastName() != null && !subscribe.getLastName().isEmpty()) {
+            mapValues.put("name", String.format(" %s %s", subscribe.getFirstName(), subscribe.getLastName()));
+        } else if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty()) {
+            mapValues.put("name", String.format(" %s", subscribe.getFirstName()));
+        } else {
+            mapValues.put("name", StringUtils.EMPTY);
+        }
+        
         mapValues.put("blogId", this.blogId.toString());
         mapValues.put("email", subscribe.getEmail());
 
