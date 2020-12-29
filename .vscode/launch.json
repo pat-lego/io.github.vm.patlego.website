@@ -19,6 +19,13 @@
                 "webpack:///./~/*": "${webRoot}/node_modules/*",
                 "meteor://💻app/*": "${webRoot}/*"
             }
+        },
+        {
+            "type": "java",
+            "name": "Debug (Attach) - Karaf",
+            "request": "attach",
+            "port": 5005,
+             "hostName": "localhost"
         }
     ]
 }

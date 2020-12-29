@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>io.github.vm.patlego</groupId>
@@ -17,6 +15,10 @@
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>karaf-services-maven-plugin</artifactId>
+      </plugin>
       <plugin>
         <groupId>org.apache.felix</groupId>
         <artifactId>maven-bundle-plugin</artifactId>
@@ -44,7 +46,18 @@
         <configuration>
           <exportScr>true</exportScr>
           <instructions>
-            <Import-Package>!javax.annotation, *</Import-Package>
+            <Private-Package>
+              io.github.vm.patlego.commands
+            </Private-Package>
+            <Import-Package>
+              !javax.annotation,
+              org.apache.karaf.shell*;version="[4,5)", 
+              *
+            </Import-Package>
+            <Export-Package>
+              io.github.vm.patlego.servlets.*,
+              io.github.vm.patlego.impl.*,
+            </Export-Package>
             <!-- Enable processing of OSGI DS component annotations -->
             <_dsannotations>*</_dsannotations>
             <!-- Enable processing of OSGI metatype annotations -->
@@ -115,6 +128,31 @@
       <groupId>io.github.vm.patlego</groupId>
       <artifactId>website.dao</artifactId>
       <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.github.vm.patlego</groupId>
+      <artifactId>system.settings</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.karaf.shell</groupId>
+      <artifactId>org.apache.karaf.shell.core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.github.vm.patlego</groupId>
+      <artifactId>system.email</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.github.vm.patlego</groupId>
+      <artifactId>website.dao</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-text</artifactId>
     </dependency>
   </dependencies>
 </project>

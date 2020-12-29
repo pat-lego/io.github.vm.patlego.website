@@ -87,7 +87,7 @@ export default {
     ]
   },
   target: "static",
-  buildModules: ["@nuxtjs/tailwindcss", "@nuxtjs/fontawesome"],
+  buildModules: ["@nuxtjs/tailwindcss", "@nuxtjs/fontawesome", "@nuxtjs/axios",],
   fontawesome: {
     icons: {
       solid: true,
@@ -101,5 +101,9 @@ export default {
   css: [
     '~/assets/css/roboto.css',
     '~/assets/css/styles.css',
-  ]
+  ],
+
+  axios: {
+    baseURL: '/', // Used as fallback if no runtime config is provided
+  }
 };

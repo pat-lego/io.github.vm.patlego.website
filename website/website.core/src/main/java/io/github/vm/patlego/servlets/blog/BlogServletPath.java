@@ -1,8 +1,9 @@
 package io.github.vm.patlego.servlets.blog;
 
-public class BlogServletPath {
+import io.github.vm.patlego.servlets.SiteServletPath;
 
-    public final static String BLOG_CLASS_PATH = "/patlegovm/1.0/site";
+public class BlogServletPath extends SiteServletPath {
+
     public final static String BLOG_METHOD_PATH = "/blogs";
     
 }

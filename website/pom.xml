@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.vm.patlego</groupId>
   <artifactId>website</artifactId>
@@ -10,6 +9,7 @@
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <karaf.runtime.version>4.3.0.RC1</karaf.runtime.version>
   </properties>
   <modules>
     <module>website.ui</module>
@@ -44,6 +44,20 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.apache.karaf.tooling</groupId>
+          <artifactId>karaf-services-maven-plugin</artifactId>
+          <version>${karaf.runtime.version}</version>
+          <executions>
+            <execution>
+              <id>service-metadata-generate</id>
+              <phase>process-classes</phase>
+              <goals>
+                <goal>service-metadata-generate</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
           <version>3.3.0</version>
@@ -57,7 +71,8 @@
           <groupId>org.eluder.coveralls</groupId>
           <artifactId>coveralls-maven-plugin</artifactId>
           <version>4.3.0</version>
-          <dependencies>            <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+          <dependencies>
+            <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
             <dependency>
               <groupId>javax.xml.bind</groupId>
               <artifactId>jaxb-api</artifactId>
@@ -120,7 +135,7 @@
             <goals>
               <goal>prepare-agent</goal>
             </goals>
-          </execution>          <!-- attached to Maven test phase -->
+          </execution> <!-- attached to Maven test phase -->
           <execution>
             <id>report</id>
             <phase>test</phase>
@@ -178,19 +193,19 @@
         <artifactId>junit-jupiter-engine</artifactId>
         <version>5.6.2</version>
         <scope>test</scope>
-      </dependency>      <!--https://mvnrepository.com/artifact/org.apache.sling/org.apache.sling.testing.osgi-mock.junit5-->
+      </dependency> <!--https://mvnrepository.com/artifact/org.apache.sling/org.apache.sling.testing.osgi-mock.junit5-->
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-junit-jupiter</artifactId>
         <version>3.4.4</version>
         <scope>test</scope>
-      </dependency>      <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+      </dependency> <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
         <version>3.4.4</version>
         <scope>test</scope>
-      </dependency>      <!-- https://mvnrepository.com/artifact/org.mockito/mockito-inline -->
+      </dependency> <!-- https://mvnrepository.com/artifact/org.mockito/mockito-inline -->
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-inline</artifactId>
@@ -202,19 +217,19 @@
         <artifactId>servlet-api</artifactId>
         <version>2.5</version>
         <scope>provided</scope>
-      </dependency>      <!--https://mvnrepository.com/artifact/org.postgresql/postgresql-->
+      </dependency> <!--https://mvnrepository.com/artifact/org.postgresql/postgresql-->
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>1.7.30</version>
         <scope>provided</scope>
-      </dependency>      <!--https://mvnrepository.com/artifact/org.slf4j/slf4j-simple-->
+      </dependency> <!--https://mvnrepository.com/artifact/org.slf4j/slf4j-simple-->
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-simple</artifactId>
         <version>1.7.30</version>
         <scope>test</scope>
-      </dependency>      <!--https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils-->
+      </dependency> <!--https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils-->
       <dependency>
         <groupId>com.google.code.findbugs</groupId>
         <artifactId>jsr305</artifactId>
@@ -225,12 +240,12 @@
         <artifactId>commons-lang3</artifactId>
         <version>3.9</version>
         <scope>provided</scope>
-      </dependency>      <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+      </dependency> <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
       <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <version>2.7</version>
-      </dependency>      <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
+      </dependency> <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
       <dependency>
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>
@@ -253,7 +268,7 @@
         <artifactId>javax.persistence-api</artifactId>
         <version>2.2</version>
         <scope>provided</scope>
-      </dependency>      <!--https://mvnrepository.com/artifact/org.apache.aries.jpa/org.apache.aries.jpa.api-->
+      </dependency> <!--https://mvnrepository.com/artifact/org.apache.aries.jpa/org.apache.aries.jpa.api-->
       <dependency>
         <groupId>org.apache.aries.jpa</groupId>
         <artifactId>org.apache.aries.jpa.api</artifactId>
@@ -269,6 +284,34 @@
         <groupId>com.fasterxml.jackson.jaxrs</groupId>
         <artifactId>jackson-jaxrs-json-provider</artifactId>
         <version>2.11.3</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.karaf.shell</groupId>
+        <artifactId>org.apache.karaf.shell.core</artifactId>
+        <version>${karaf.runtime.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.9</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.github.vm.patlego</groupId>
+        <artifactId>system.email</artifactId>
+        <version>${project.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>io.github.vm.patlego</groupId>
+        <artifactId>website.dao</artifactId>
+        <version>${project.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-text</artifactId>
+        <version>1.9</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
