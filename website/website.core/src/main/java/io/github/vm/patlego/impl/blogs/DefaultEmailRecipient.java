@@ -1,4 +1,4 @@
-package io.github.vm.patlego.impl;
+package io.github.vm.patlego.impl.blogs;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;

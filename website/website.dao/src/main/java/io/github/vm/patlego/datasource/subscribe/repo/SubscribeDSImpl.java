@@ -2,9 +2,9 @@ package io.github.vm.patlego.datasource.subscribe.repo;
 
 import java.util.List;
 
-import javax.persistence.EntityExistsException;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.apache.aries.jpa.template.JpaTemplate;
 import org.apache.aries.jpa.template.TransactionType;
@@ -27,7 +27,8 @@ public class SubscribeDSImpl implements SubscribeDS {
     @Override
     public Subscribe createSubscription(Subscribe subscribe) {
         if (subscribe == null || subscribe.getEmail() == null || subscribe.getEmail().isEmpty()) {
-            throw new IllegalArgumentException("Cannot create an empty subscription, please make sure that the email is present");
+            throw new IllegalArgumentException(
+                    "Cannot create an empty subscription, please make sure that the email is present");
         }
 
         this.lowerCaseEmail(subscribe);
@@ -45,6 +46,8 @@ public class SubscribeDSImpl implements SubscribeDS {
         return this.jpaTemplate.txExpr(TransactionType.RequiresNew, emFunction -> {
             CriteriaQuery<Subscribe> criteriaQuerySubscribe = emFunction.getCriteriaBuilder()
                     .createQuery(Subscribe.class);
+            Root<Subscribe> subscribeRoot = criteriaQuerySubscribe.from(Subscribe.class);
+            criteriaQuerySubscribe.select(subscribeRoot);
             TypedQuery<Subscribe> typedQuery = emFunction.createQuery(criteriaQuerySubscribe);
             return typedQuery.getResultList();
         });
@@ -53,7 +56,8 @@ public class SubscribeDSImpl implements SubscribeDS {
     @Override
     public Subscribe deleteSubscription(Subscribe subscribe) {
         if (subscribe == null || subscribe.getEmail() == null || subscribe.getEmail().isEmpty()) {
-            throw new IllegalArgumentException("Cannot delete a non existing subscription, please make sure that the email is present");
+            throw new IllegalArgumentException(
+                    "Cannot delete a non existing subscription, please make sure that the email is present");
         }
 
         this.lowerCaseEmail(subscribe);

@@ -130,6 +130,11 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
+      <groupId>io.github.vm.patlego</groupId>
+      <artifactId>system.settings</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.apache.karaf.shell</groupId>
       <artifactId>org.apache.karaf.shell.core</artifactId>
     </dependency>
@@ -144,6 +149,10 @@
     <dependency>
       <groupId>io.github.vm.patlego</groupId>
       <artifactId>website.dao</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-text</artifactId>
     </dependency>
   </dependencies>
 </project>
