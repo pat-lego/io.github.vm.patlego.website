@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@nuxtjs/axios": "^5.12.4",
     "@nuxtjs/fontawesome": "^1.1.2",
     "nuxt": "^2.14.9"
   },

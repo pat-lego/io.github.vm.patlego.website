@@ -83,7 +83,13 @@ public class SendBlog implements Action {
             }
 
             content.addMessage(getEmailContent());
-            this.emailService.send(new DefaultEmailRecipient(), getTemplater(subscribe), content.build());
+            
+            try {
+                this.emailService.send(new DefaultEmailRecipient(), getTemplater(subscribe), content.build());
+            } catch (Exception e) {
+                logger.warn(String.format("Failed to send email to %s moving through the other subscriptions", subscribe.getEmail()));
+            }
+            
         }
 
         if (subscriptions.size() == 1) {
