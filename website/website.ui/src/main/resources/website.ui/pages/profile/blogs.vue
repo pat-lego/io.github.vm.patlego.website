@@ -1,14 +1,7 @@
 <template>
   <div id="app" class="flex flex-col w-full">
     <div>
-      <div class="flex mb-4 h-10 w-full">
-        <div class="flex w-1/3">
-          <icon-component />
-        </div>
-        <div class="flex w-full">
-          <nav-component />
-        </div>
-      </div>
+      <header-component/>
     </div>
     <div class="flex w-full component">
       <div
@@ -113,19 +106,17 @@
       </div>
     </div>
     <div class="flex h-40 pt-10 w-full">
-      <footer-component :footer="footer" />
+      <footer-component />
     </div>
   </div>
 </template>
 <script>
 import Header from "@/components/Header.vue";
-import Icon from "@/components/Icon.vue";
 import Footer from "@/components/Footer.vue";
 export default {
   name: "blogs-view",
   components: {
-    "icon-component": Icon,
-    "nav-component": Header,
+    "header-component": Header,
     "footer-component": Footer,
   },
   data() {
@@ -138,13 +129,6 @@ export default {
       emailLabelError: false,
       error: "An error occured",
       blogs: undefined,
-      footer: {
-        github: "https://github.com/pat-lego",
-        twitter: "https://twitter.com/_patlego",
-        linkedin: "https://www.linkedin.com/in/patrique-legault/",
-        stackoverflow:
-          "https://stackoverflow.com/users/8828583/patrique-legault",
-      },
     };
   },
   head() {

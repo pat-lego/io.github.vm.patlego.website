@@ -1,14 +1,7 @@
 <template>
   <div id="app" class="flex flex-col w-full">
     <div>
-      <div class="flex mb-4 h-10 w-full">
-        <div class="flex w-1/3">
-          <icon-component />
-        </div>
-        <div class="flex w-full">
-          <nav-component />
-        </div>
-      </div>
+      <header-component />
     </div>
     <div class="flex w-full component">
       <div
@@ -53,19 +46,17 @@
       </div>
     </div>
     <div class="flex h-40 pt-10 w-full">
-      <footer-component :footer="footer" />
+      <footer-component />
     </div>
   </div>
 </template>
 <script>
 import Header from "@/components/Header.vue";
-import Icon from "@/components/Icon.vue";
 import Footer from "@/components/Footer.vue";
 export default {
   name: "blog-view",
   components: {
-    "icon-component": Icon,
-    "nav-component": Header,
+    "header-component": Header,
     "footer-component": Footer,
   },
   data: () => {
@@ -121,13 +112,13 @@ export default {
   },
   /**
    * This fetch invocation is performed on the client, as you can see below the fetchOnServer parameter is set to false.
-   * In comparison fetch and asyncData are both used to retrieve data on the server and then merge it into the page template. 
+   * In comparison fetch and asyncData are both used to retrieve data on the server and then merge it into the page template.
    * This is not something that works well when generating static HTML since there is no server rendering the HTML page.
-   * 
+   *
    * If external data is to be fixed for a long period of time then using asyncData
    * is a wise investment.
-   * 
-   * Refer to these options when using asyncData as it needs to know the external service endpoint in order to retrieve the data 
+   *
+   * Refer to these options when using asyncData as it needs to know the external service endpoint in order to retrieve the data
    * at build time https://http.nuxtjs.org/options/
    */
   async fetch() {
