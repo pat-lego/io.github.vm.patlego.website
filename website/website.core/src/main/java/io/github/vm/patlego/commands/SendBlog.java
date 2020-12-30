@@ -72,6 +72,7 @@ public class SendBlog implements Action {
         }
 
         for (Subscribe subscribe : subscriptions) {
+            content.resetTo();
             if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty()
                     && subscribe.getLastName() != null && !subscribe.getLastName().isEmpty()) {
                 content.addTo(new InternetAddress(subscribe.getEmail(),
@@ -83,7 +84,7 @@ public class SendBlog implements Action {
             }
 
             content.addMessage(getEmailContent());
-            
+
             try {
                 this.emailService.send(new DefaultEmailRecipient(), getTemplater(subscribe), content.build());
             } catch (Exception e) {
