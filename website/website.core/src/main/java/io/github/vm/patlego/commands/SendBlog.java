@@ -62,9 +62,6 @@ public class SendBlog implements Action {
             return null;
         }
 
-        EmailContent.Builder content = new EmailContent.Builder().setHTML(Boolean.TRUE)
-                .addSubject(String.format("Enjoy reading this new Blog - %s", this.getBlogTitle(blogId)));
-
         List<Subscribe> subscriptions = this.getSubscriptions();
 
         if (subscriptions.size() == 0) {
@@ -72,25 +69,27 @@ public class SendBlog implements Action {
         }
 
         for (Subscribe subscribe : subscriptions) {
-            content.resetTo();
-            if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty()
-                    && subscribe.getLastName() != null && !subscribe.getLastName().isEmpty()) {
-                content.addTo(new InternetAddress(subscribe.getEmail(),
-                        String.format("%s %s", subscribe.getFirstName(), subscribe.getLastName())));
-            } else if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty()) {
-                content.addTo(new InternetAddress(subscribe.getEmail(), subscribe.getFirstName()));
-            } else {
-                content.addTo(new InternetAddress(subscribe.getEmail()));
-            }
-
-            content.addMessage(getEmailContent());
-
             try {
+                EmailContent.Builder content = new EmailContent.Builder().setHTML(Boolean.TRUE)
+                        .addSubject(String.format("Enjoy reading this new Blog - %s", this.getBlogTitle(blogId)))
+                        .addMessage(getEmailContent());
+
+                if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty()
+                        && subscribe.getLastName() != null && !subscribe.getLastName().isEmpty()) {
+                    content.addTo(new InternetAddress(subscribe.getEmail(),
+                            String.format("%s %s", subscribe.getFirstName(), subscribe.getLastName())));
+                } else if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty()) {
+                    content.addTo(new InternetAddress(subscribe.getEmail(), subscribe.getFirstName()));
+                } else {
+                    content.addTo(new InternetAddress(subscribe.getEmail()));
+                }
+
                 this.emailService.send(new DefaultEmailRecipient(), getTemplater(subscribe), content.build());
             } catch (Exception e) {
-                logger.warn(String.format("Failed to send email to %s moving through the other subscriptions", subscribe.getEmail()));
+                logger.warn(String.format("Failed to send email to %s moving through the other subscriptions",
+                        subscribe.getEmail()));
             }
-            
+
         }
 
         if (subscriptions.size() == 1) {
@@ -115,14 +114,15 @@ public class SendBlog implements Action {
 
     public Templater getTemplater(Subscribe subscribe) throws IOException {
         Map<String, String> mapValues = new HashMap<String, String>();
-        if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty() && subscribe.getLastName() != null && !subscribe.getLastName().isEmpty()) {
+        if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty() && subscribe.getLastName() != null
+                && !subscribe.getLastName().isEmpty()) {
             mapValues.put("name", String.format(" %s %s", subscribe.getFirstName(), subscribe.getLastName()));
         } else if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty()) {
             mapValues.put("name", String.format(" %s", subscribe.getFirstName()));
         } else {
             mapValues.put("name", StringUtils.EMPTY);
         }
-        
+
         mapValues.put("blogId", this.blogId.toString());
         mapValues.put("email", subscribe.getEmail());
 
@@ -138,7 +138,7 @@ public class SendBlog implements Action {
                 mapValues.put("serverPort", devUrls.getPort().toString());
                 break;
         }
-       
+
         Templater templater = new BlogTemplater(mapValues);
 
         return templater;
