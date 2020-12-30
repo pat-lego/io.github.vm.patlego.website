@@ -40,16 +40,16 @@ public class SendBlog implements Action {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Reference
-    private RunMode runMode;
+    public RunMode runMode;
 
     @Reference
-    private BlogsDS blogDS;
+    public BlogsDS blogDS;
 
     @Reference
-    private SubscribeDS subscribeDS;
+    public SubscribeDS subscribeDS;
 
     @Reference(filter = "(patlego.email=default)")
-    private EmailService emailService;
+    public EmailService emailService;
 
     @Argument(index = 0, name = "blogId", description = "Blog to be sent to all users", required = true, multiValued = false)
     public Long blogId = 0L;
@@ -59,7 +59,7 @@ public class SendBlog implements Action {
         // Nothing to do incorrect blogId
         if (blogId == null || blogId <= 0) {
             logger.warn("Submitted a blog id smaller then 0, please provide a valid blog id");
-            return null;
+            return "Submitted a blog id smaller then 0, please provide a valid blog id";
         }
 
         List<Subscribe> subscriptions = this.getSubscriptions();
@@ -67,6 +67,8 @@ public class SendBlog implements Action {
         if (subscriptions.size() == 0) {
             return "No blogs to send since there are no subscribers";
         }
+
+        Integer sentBlogs = subscriptions.size();
 
         for (Subscribe subscribe : subscriptions) {
             try {
@@ -88,15 +90,20 @@ public class SendBlog implements Action {
             } catch (Exception e) {
                 logger.warn(String.format("Failed to send email to %s moving through the other subscriptions",
                         subscribe.getEmail()));
+                sentBlogs = sentBlogs - 1;
             }
 
         }
 
-        if (subscriptions.size() == 1) {
-            return String.format("Sent blog %s to %d user", this.getBlogTitle(blogId), subscriptions.size());
+        if (sentBlogs == 0) {
+            return String.format("Sent no blogs to any users, please check the logs as this might be caused by an internal issue", this.getBlogTitle(blogId), sentBlogs);
         }
 
-        return String.format("Sent blog %s to %d users", this.getBlogTitle(blogId), subscriptions.size());
+        if (sentBlogs == 1) {
+            return String.format("Sent blog %s to %d user", this.getBlogTitle(blogId), sentBlogs);
+        }
+
+        return String.format("Sent blog %s to %d users", this.getBlogTitle(blogId), sentBlogs);
 
     }
 

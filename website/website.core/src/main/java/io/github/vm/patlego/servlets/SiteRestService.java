@@ -19,13 +19,13 @@ import io.github.vm.patlego.servlets.subscribe.impl.SubscriberServiceImpl;
 @Component
 public class SiteRestService {
     
-    private Server server;
+    public Server server;
 
     @Reference
-    private BlogsDS blogsDS;
+    public BlogsDS blogsDS;
 
     @Reference
-    private SubscribeDS subscribeDS;
+    public SubscribeDS subscribeDS;
 
     @Activate
     public void activate() throws Exception {
