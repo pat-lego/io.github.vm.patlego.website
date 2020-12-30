@@ -1,9 +1,9 @@
-import Header from '@/components/Header.vue'
+import Nav from '@/components/Nav.vue'
 import { shallowMount, createLocalVue, RouterLinkStub  } from '@vue/test-utils'
 
-describe('Header.vue', () => {
+describe('Nav.vue', () => {
   it('header tabs', () => {
-    const wrapper = shallowMount(Header, {
+    const wrapper = shallowMount(Nav, {
       stubs: {
         NuxtLink: RouterLinkStub
       }

@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="flex flex-col w-full">
     <div>
-      <header-component/>
+      <header-component />
     </div>
     <div class="flex w-full component">
       <div
@@ -20,43 +20,46 @@
           >
             <div class="font-bold m-6">Enjoy reading one of our blogs.</div>
             <button v-on:click="showForm">Subscribe to our blogs</button>
-            <div
-              class="flex flex-col md:flex-row"
-              v-bind:class="{ hidden: hideForm }"
-            >
-              
-              <div class="flex flex-col justify-center p-1">
-                <label for="firstname">First Name</label>
-                <input
-                  type="text"
-                  id="firstname"
-                  name="firstname"
-                  placeholder="Your first name"
-                  v-model="firstname"
-                />
-              </div>
+            <div class="flex flex-col" v-bind:class="{ hidden: hideForm }">
+              <div class="flex flex-col md:flex-row justify-center items-center">
+                <div class="flex flex-col justify-center p-1">
+                  <label for="firstname">First Name</label>
+                  <input
+                    type="text"
+                    id="firstname"
+                    name="firstname"
+                    placeholder="Your first name"
+                    v-model="firstname"
+                  />
+                </div>
 
-              <div class="flex flex-col justify-center p-1">
-                <label for="lastname">Last Name</label>
-                <input
-                  type="text"
-                  id="lastname"
-                  name="lastname"
-                  placeholder="Your last name"
-                  v-model="lastname"
-                />
-              </div>
+                <div class="flex flex-col justify-center p-1">
+                  <label for="lastname">Last Name</label>
+                  <input
+                    type="text"
+                    id="lastname"
+                    name="lastname"
+                    placeholder="Your last name"
+                    v-model="lastname"
+                  />
+                </div>
 
-              <div class="flex flex-col justify-center p-1">
-                <label id="emailLabel" for="email" :class="[emailLabelError ? 'text-red-600' : '']">Email Address *</label>
-                <input
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="pat@gmail.com"
-                  size="20"
-                  v-model="email"
-                />
+                <div class="flex flex-col justify-center p-1">
+                  <label
+                    id="emailLabel"
+                    for="email"
+                    :class="[emailLabelError ? 'text-red-600' : '']"
+                    >Email Address *</label
+                  >
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="pat@gmail.com"
+                    size="20"
+                    v-model="email"
+                  />
+                </div>
               </div>
 
               <div class="flex justify-center p-1">
@@ -211,7 +214,7 @@ export default {
     },
     subscribe: async function (event) {
       if (this.email === undefined || this.email.trim() === "") {
-        this.emailLabelError = true
+        this.emailLabelError = true;
         return;
       }
 
