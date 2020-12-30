@@ -1,4 +1,5 @@
 ![Build Status](https://github.com/pat-lego/io.github.vm.patlego.website/workflows/Deploy%20Project/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/pat-lego/io.github.vm.patlego.website/badge.svg?branch=master)](https://coveralls.io/github/pat-lego/io.github.vm.patlego.website?branch=master)
 
 # Karaf Based Website
 Blog Engine for the patlego system
