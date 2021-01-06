@@ -14,36 +14,14 @@
             </div>
             <h2>Reason #5 - Easy to Debug</h2>
             <div class="prgrph">
-                When developers have to fight to debug/step through their own code you know that this not going to be a fun work environment. Let's be honest developers are both the crime scene investigators and the murderers. So when a blood bath appears you need to be able to quickly dig into the <b>Why?</b>. In Karaf one environment variable in the work environment and you can now connect your debugger to the system.
-
-                <div style="display: flex; justify-content: center"><pre><code>ENV EXTRA_JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005</code></pre></div>
-
-                All I did was place the above environment variable in my Dockerfile and the system was debuggable on port 5005. Of course you need to create a local debug configuration in your IDE, for me that would be <code>VS Code</code>. A sample configuration file would like the following.
-                
-                <pre><code>
-                    {
-                        // Use IntelliSense to learn about possible attributes.
-                        // Hover to view descriptions of existing attributes.
-                        // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-                        "version": "0.2.0",
-                        "configurations": [
-                            {
-                                "type": "java",
-                                "name": "Debug (Attach) - Karaf",
-                                "request": "attach",
-                                "port": 5005,
-                                 "hostName": "localhost"
-                            }
-                        ]
-                    }
-                </code></pre>
+                When developers have to fight to debug/step through their own code you know that this not going to be a fun work environment. Let's be honest developers are both the crime scene investigators and the murderers. So when a blood bath appears you need to be able to quickly dig into the <b>Why?</b>. In Karaf one <u><a href="http://karaf.apache.org/manual/latest/#_debugging" target="_blank">environment variable</a></u> in the work environment and you can now connect your debugger to the system.
             </div>
             <h2>Reason #4 - Wrap</h2>
             <div class="prgrph">
                 Okay so this one is for the developers who have worked with OSGi, if you have not feel free to skip. The wrap command solves the problem I like to call <b>OSGi Hell</b>, essentially the problem is this. You need to develop a certain microservice so you start building your bundle and then you notice that there is a nice open source library that you can use in your project. So you do what any developer would do (well in my mind anyway) you simply try to deploy it in the /system/console window so that other projects can refer to it. You click the nice big button that says <b>Install</b> and what do you get.... a <b>500</b> error saying your library is not a true bundle. Now you have to pretty much have to embed the dependency into your own project or deploy individual bundles that expose classes that allow developers to interact with the bundle. 
             </div>
             <div class="prgrph">
-                In Karaf that does not happen, because when you build your bundles they get installed through a <i>feature</i>, essentially a fancy XML file that knows how to read a maven repo. Let's say you wanted to install your library with a feature you would simply place <code>&lt;bundle&gt;mvn:groupId/artifactId/version&lt;/bundle&gt;</code> and when the feature is read then this artifact would be queried locally and remotely. Well if we are referring to our previous library then this would fail to install since it is a not a true bundle. No problem one slight alteration to the bundle tag <code>&lt;bundle&gt;wrap:mvn:groupId/artifactId/version&lt;/bundle&gt;</code>. Now the library is dynamically converted to an OSGi bundle prior to being installed into the repository allowing other bundles to reference the library at runtime.
+                In Karaf that does not happen, because when you build your bundles they get installed through a <i>feature</i>, essentially a fancy XML file that knows how to read a maven repo. Let's say you wanted to install your library with a feature you would simply place <i>&lt;bundle&gt;mvn:groupId/artifactId/version&lt;/bundle&gt;</i> and when the feature is read then this artifact would be queried locally and remotely. Well if we are referring to our previous library then this would fail to install since it is a not a true bundle. No problem one slight alteration to the bundle tag <i>&lt;bundle&gt;wrap:mvn:groupId/artifactId/version&lt;/bundle&gt;</i>. Now the library is dynamically converted to an OSGi bundle prior to being installed into the repository allowing other bundles to reference the library at runtime.
             </div>
             <h2>Reason #3 - Features</h2>
             <div class="prgrph">
@@ -67,7 +45,7 @@
             </div>
             <h2>Reason #2 - bundle:watch</h2>
             <div class="prgrph">
-                Karaf exposes an SSH server, any developer can connect to the server by using any SSH client and connecting to the server with the correct credentials. Once connected to the server developers can type this one command that will change everything <code>bundle:watch *</code>. This command puts the server in a <i>watch</i> mode, if any of the bundles that were deployed from a feature get rebuilt <b>and</b> are a <i>-SNAPSHOT</i> version then Karaf will automatically redeploy this bundle into the container. For instance let's say one of your local projects is part of a feature, specifically <i>mvn:io.github.vm.patlego/patlego-api/1.0.0-SNAPSHOT</i>. Now when the <code>bundle:watch *</code> command is executed on the server, then the next time the <i>patlego-api</i> project is rebuilt the Karaf container will automatically pull in the artifact from the maven repository and redeploy it into the container. This means that developers can develop new features and services and only have to run a build in order to deploy new functionality into the container. This functionality helps developers build and quickly validate functionality of services without having to manually perform deployments.
+                Karaf exposes an SSH server, any developer can connect to the server by using any SSH client and connecting to the server with the correct credentials. Once connected to the server developers can type this one command that will change everything bundle:watch *. This command puts the server in a <i>watch</i> mode, if any of the bundles that were deployed from a feature get rebuilt <b>and</b> are a <i>-SNAPSHOT</i> version then Karaf will automatically redeploy this bundle into the container. For instance let's say one of your local projects is part of a feature, specifically <i>mvn:io.github.vm.patlego/patlego-api/1.0.0-SNAPSHOT</i>. Now when the bundle:watch * command is executed on the server, then the next time the <i>patlego-api</i> project is rebuilt the Karaf container will automatically pull in the artifact from the maven repository and redeploy it into the container. This means that developers can develop new features and services and only have to run a build in order to deploy new functionality into the container. This functionality helps developers build and quickly validate functionality of services without having to manually perform deployments.
             </div>
             <h2>Reason #1 - Karaf Shell</h2>
             <div class="prgrph">

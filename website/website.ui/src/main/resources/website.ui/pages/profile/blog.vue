@@ -173,13 +173,4 @@ export default {
     margin: revert;
     padding:revert;
 }
-.blog >>> pre {
-    display: block;
-    font-family: monospace;
-    white-space: pre;
-    margin: revert;
-}
-.blog >>> code {
-    font-family: monospace;
-}
 </style>
