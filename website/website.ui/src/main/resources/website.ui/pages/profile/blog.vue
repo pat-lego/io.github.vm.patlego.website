@@ -3,7 +3,7 @@
     <div>
       <header-component />
     </div>
-    <div class="flex w-full component">
+    <div class="flex component">
       <div
         v-if="data === undefined"
         class="flex justify-center items-center w-full h-52 animate-spin"
@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="flex w-full sm:justify-center sm:content-center">
-          <div class="w-96 sm:w-3/4 sm:p-20 bg-gray-100">
+          <div class="w-11/12 sm:w-3/4 sm:p-20 bg-gray-100">
             <div class="blog" v-html="data.blog"></div>
           </div>
         </div>
