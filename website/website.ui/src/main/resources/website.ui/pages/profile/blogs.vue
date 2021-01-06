@@ -19,7 +19,7 @@
             class="flex flex-col items-center justify-center h-auto md:h-60 w-full md:w-2/5"
           >
             <div class="font-bold m-6">Enjoy reading one of our blogs.</div>
-            <button v-on:click="showForm">Subscribe to our blogs</button>
+            <div v-on:click="showForm" class="hover:text-blue-600">Subscribe to our blogs</div>
             <div class="flex flex-col" v-bind:class="{ hidden: hideForm }">
               <div class="flex flex-col md:flex-row justify-center items-center">
                 <div class="flex flex-col justify-center p-1">
