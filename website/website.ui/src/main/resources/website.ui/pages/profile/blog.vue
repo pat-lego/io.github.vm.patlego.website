@@ -23,7 +23,7 @@
         </div>
         <div class="flex w-full sm:justify-center sm:content-center">
           <div class="w-11/12 sm:w-3/4 sm:p-20 bg-gray-100">
-            <div class="blog" v-html="data.blog"></div>
+            <div class="blog break-all" v-html="data.blog"></div>
           </div>
         </div>
         <div class="w-fullsm:w-1/2 sm:pl-10 pt-5 pb-5">
