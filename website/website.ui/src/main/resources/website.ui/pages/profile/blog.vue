@@ -3,7 +3,7 @@
     <div>
       <header-component />
     </div>
-    <div class="flex component">
+    <div class="flex w-full component">
       <div
         v-if="data === undefined"
         class="flex justify-center items-center w-full h-52 animate-spin"
@@ -13,7 +13,7 @@
           :icon="['fa', 'spinner']"
         />
       </div>
-      <div v-else-if="data !== error" class="flex flex-col">
+      <div v-else-if="data !== error" class="flex flex-col w-full">
         <div class="w-full sm:w-3/4">
           <div
             class="flex content-center sm:pl-10 pb-5 text-2xl lg:text-3xl xl:text-4xl"
@@ -21,12 +21,12 @@
             {{ data.blogTitle }}
           </div>
         </div>
-        <div class="flex w-full sm:justify-center sm:content-center">
-          <div class="w-11/12 sm:w-3/4 sm:p-20 bg-gray-100">
-            <div class="blog break-all sm:break-normal" v-html="data.blog"></div>
+        <div class="flex w-full justify-left sm:justify-center sm:content-center">
+          <div class="w-full pl-1 sm:w-3/4 sm:p-20 bg-gray-100">
+            <div class="blog break-words sm:break-normal sm:w-full" v-html="data.blog"></div>
           </div>
         </div>
-        <div class="w-fullsm:w-1/2 sm:pl-10 pt-5 pb-5">
+        <div class="w-full sm:w-1/2 sm:pl-10 pt-5 pb-5">
           <div class="flex content-center italic">
             By: {{ data.blogAuthor }}
           </div>
