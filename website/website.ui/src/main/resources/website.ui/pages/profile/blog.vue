@@ -167,4 +167,19 @@ export default {
   font-weight: revert;
   margin: revert;
 }
+.blog >>> ul {
+    display: block;
+    list-style-type: disc;
+    margin: revert;
+    padding:revert;
+}
+.blog >>> pre {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: revert;
+}
+.blog >>> code {
+    font-family: monospace;
+}
 </style>
