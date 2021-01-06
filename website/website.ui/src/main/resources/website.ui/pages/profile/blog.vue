@@ -21,8 +21,8 @@
             {{ data.blogTitle }}
           </div>
         </div>
-        <div class="flex w-full justify-center content-center">
-          <div class="w-full sm:w-3/4 sm:p-20 bg-gray-100">
+        <div class="flex w-full sm:justify-center sm:content-center">
+          <div class="w-96 sm:w-3/4 sm:p-20 bg-gray-100">
             <div class="blog" v-html="data.blog"></div>
           </div>
         </div>
