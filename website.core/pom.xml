@@ -51,7 +51,7 @@
             </Private-Package>
             <Import-Package>
               !javax.annotation,
-              org.apache.karaf.shell*;version="[4,5)", 
+              org.apache.karaf.shell*;version="[4,5)",
               *
             </Import-Package>
             <Export-Package>
@@ -143,6 +143,10 @@
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
     </dependency>
   </dependencies>
 </project>
