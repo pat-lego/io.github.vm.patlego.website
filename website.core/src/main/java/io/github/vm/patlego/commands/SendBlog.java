@@ -48,7 +48,7 @@ public class SendBlog implements Action {
     @Reference
     public SubscribeDS subscribeDS;
 
-    @Reference(filter = "(patlego.email=default)")
+    @Reference(filter = "(email.name=patlego-vm)")
     public EmailService emailService;
 
     @Argument(index = 0, name = "blogId", description = "Blog to be sent to all users", required = true, multiValued = false)
