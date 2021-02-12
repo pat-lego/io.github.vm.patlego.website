@@ -5,23 +5,29 @@
   <artifactId>website</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
-  
+
   <name>Website</name>
-  
+
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <karaf.runtime.version>4.3.0</karaf.runtime.version>
     <patlego.vm.version>1.0-SNAPSHOT</patlego.vm.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <commons-lang3.version>3.11</commons-lang3.version>
+    <commons-io.version>2.8.0</commons-io.version>
+    <commons-text.version>1.9</commons-text.version>
+    <aries.jpa.version>2.7.2</aries.jpa.version>
+    <google-gson.version>2.8.6</google-gson.version>
   </properties>
-  
+
   <modules>
     <module>website.ui</module>
     <module>website.dao</module>
     <module>website.core</module>
   </modules>
-  
+
   <repositories>
     <repository>
       <id>central</id>
@@ -204,19 +210,19 @@
         <artifactId>junit-jupiter-engine</artifactId>
         <version>5.6.2</version>
         <scope>test</scope>
-      </dependency> <!--https://mvnrepository.com/artifact/org.apache.sling/org.apache.sling.testing.osgi-mock.junit5-->
+      </dependency> 
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-junit-jupiter</artifactId>
         <version>3.4.4</version>
         <scope>test</scope>
-      </dependency> <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+      </dependency>
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
         <version>3.4.4</version>
         <scope>test</scope>
-      </dependency> <!-- https://mvnrepository.com/artifact/org.mockito/mockito-inline -->
+      </dependency>
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-inline</artifactId>
@@ -228,39 +234,28 @@
         <artifactId>servlet-api</artifactId>
         <version>2.5</version>
         <scope>provided</scope>
-      </dependency> <!--https://mvnrepository.com/artifact/org.postgresql/postgresql-->
+      </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>1.7.30</version>
         <scope>provided</scope>
-      </dependency> <!--https://mvnrepository.com/artifact/org.slf4j/slf4j-simple-->
+      </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-simple</artifactId>
         <version>1.7.30</version>
         <scope>test</scope>
-      </dependency> <!--https://mvnrepository.com/artifact/commons-dbutils/commons-dbutils-->
+      </dependency>
       <dependency>
         <groupId>com.google.code.findbugs</groupId>
         <artifactId>jsr305</artifactId>
         <version>3.0.2</version>
       </dependency>
       <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.9</version>
-        <scope>provided</scope>
-      </dependency> <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-      <dependency>
-        <groupId>commons-io</groupId>
-        <artifactId>commons-io</artifactId>
-        <version>2.7</version>
-      </dependency> <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
-      <dependency>
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>
-        <version>2.8.6</version>
+        <version>${google-gson.version}</version>
       </dependency>
       <dependency>
         <groupId>javax.transaction</groupId>
@@ -283,7 +278,7 @@
       <dependency>
         <groupId>org.apache.aries.jpa</groupId>
         <artifactId>org.apache.aries.jpa.api</artifactId>
-        <version>2.7.2</version>
+        <version>${aries.jpa.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
@@ -304,7 +299,7 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
-        <version>3.9</version>
+        <version>${commons-lang3.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
@@ -327,7 +322,12 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-text</artifactId>
-        <version>1.9</version>
+        <version>${commons-text.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons-io.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

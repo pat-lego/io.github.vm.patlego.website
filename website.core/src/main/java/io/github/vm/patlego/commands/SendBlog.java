@@ -3,7 +3,6 @@ package io.github.vm.patlego.commands;
 import org.apache.karaf.shell.api.action.Action;
 import org.apache.karaf.shell.api.action.Argument;
 import org.apache.karaf.shell.api.action.Command;
-import org.apache.karaf.shell.api.action.Option;
 import org.apache.karaf.shell.api.action.lifecycle.Reference;
 import org.apache.karaf.shell.api.action.lifecycle.Service;
 import org.slf4j.Logger;
@@ -18,12 +17,12 @@ import io.github.vm.patlego.email.template.Templater;
 import io.github.vm.patlego.impl.blogs.BlogTemplater;
 import io.github.vm.patlego.impl.blogs.DefaultEmailRecipient;
 import io.github.vm.patlego.runmodes.RunMode;
-import io.github.vm.patlego.runmodes.RunModes;
 import io.github.vm.patlego.urls.ProdSystemURL;
 import io.github.vm.patlego.urls.DevSystemURL;
 import io.github.vm.patlego.urls.SystemURL;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -108,7 +107,7 @@ public class SendBlog implements Action {
     }
 
     public String getEmailContent() throws IOException {
-        return IOUtils.toString(this.getClass().getResourceAsStream("/blog-templates/blog.html"), "UTF-8");
+        return IOUtils.toString(this.getClass().getResourceAsStream("/blog-templates/blog.html"), StandardCharsets.UTF_8);
     }
 
     public String getBlogTitle(Long blogId) {

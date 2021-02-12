@@ -101,5 +101,4 @@
       <artifactId>org.apache.aries.jpa.api</artifactId>
     </dependency>
   </dependencies>
-
 </project>
