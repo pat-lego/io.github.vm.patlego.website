@@ -27,8 +27,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.mail.internet.InternetAddress;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -75,15 +73,7 @@ public class SendBlog implements Action {
                         .addSubject(String.format("Enjoy reading this new Blog - %s", this.getBlogTitle(blogId)))
                         .addMessage(getEmailContent());
 
-                if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty()
-                        && subscribe.getLastName() != null && !subscribe.getLastName().isEmpty()) {
-                    content.addTo(new InternetAddress(subscribe.getEmail(),
-                            String.format("%s %s", subscribe.getFirstName(), subscribe.getLastName())));
-                } else if (subscribe.getFirstName() != null && !subscribe.getFirstName().isEmpty()) {
-                    content.addTo(new InternetAddress(subscribe.getEmail(), subscribe.getFirstName()));
-                } else {
-                    content.addTo(new InternetAddress(subscribe.getEmail()));
-                }
+                content.addTo(subscribe.getEmail());
 
                 this.emailService.send(new DefaultEmailRecipient(), getTemplater(subscribe), content.build());
             } catch (Exception e) {
@@ -95,7 +85,9 @@ public class SendBlog implements Action {
         }
 
         if (sentBlogs == 0) {
-            return String.format("Sent no blogs to any users, please check the logs as this might be caused by an internal issue", this.getBlogTitle(blogId), sentBlogs);
+            return String.format(
+                    "Sent no blogs to any users, please check the logs as this might be caused by an internal issue",
+                    this.getBlogTitle(blogId), sentBlogs);
         }
 
         if (sentBlogs == 1) {
@@ -107,7 +99,8 @@ public class SendBlog implements Action {
     }
 
     public String getEmailContent() throws IOException {
-        return IOUtils.toString(this.getClass().getResourceAsStream("/blog-templates/blog.html"), StandardCharsets.UTF_8);
+        return IOUtils.toString(this.getClass().getResourceAsStream("/blog-templates/blog.html"),
+                StandardCharsets.UTF_8);
     }
 
     public String getBlogTitle(Long blogId) {
