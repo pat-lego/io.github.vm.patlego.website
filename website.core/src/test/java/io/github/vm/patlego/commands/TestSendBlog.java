@@ -14,7 +14,7 @@ import io.github.vm.patlego.datasource.blogs.repo.BlogsDS;
 import io.github.vm.patlego.datasource.blogs.tables.Blog;
 import io.github.vm.patlego.datasource.subscribe.repo.SubscribeDS;
 import io.github.vm.patlego.datasource.subscribe.tables.Subscribe;
-import io.github.vm.patlego.email.EmailService;
+import io.github.vm.patlego.mail.EmailService;
 import io.github.vm.patlego.runmodes.RunMode;
 import io.github.vm.patlego.runmodes.RunModes;
 

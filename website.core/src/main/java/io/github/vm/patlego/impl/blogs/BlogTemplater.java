@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import org.apache.commons.text.StringSubstitutor;
 
-import io.github.vm.patlego.email.template.Templater;
+import io.github.vm.patlego.mail.template.Templater;
 
 public class BlogTemplater implements Templater {
 

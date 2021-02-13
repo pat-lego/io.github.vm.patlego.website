@@ -1,6 +1,6 @@
 package io.github.vm.patlego.impl.blogs;
 
-import io.github.vm.patlego.email.bean.EmailRecipient;
+import io.github.vm.patlego.mail.bean.EmailRecipient;
 
 public class DefaultEmailRecipient implements EmailRecipient {
 
