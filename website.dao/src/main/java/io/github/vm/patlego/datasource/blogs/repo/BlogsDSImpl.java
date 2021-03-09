@@ -54,7 +54,7 @@ public class BlogsDSImpl implements BlogsDS {
     }
 
     @Modified
-    protected void Modified() {
+    protected void modified() {
         logger.info(String.format("%s has been modified", this.getClass().getName()));
     }
 
