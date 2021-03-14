@@ -1,4 +1,4 @@
-package io.github.vm.patlego.servlets;
+package io.github.vm.patlego.website.core.servlets;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

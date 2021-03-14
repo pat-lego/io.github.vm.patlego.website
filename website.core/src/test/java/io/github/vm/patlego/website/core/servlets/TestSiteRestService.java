@@ -1,4 +1,4 @@
-package io.github.vm.patlego.servlets;
+package io.github.vm.patlego.website.core.servlets;
 
 import org.apache.cxf.endpoint.Server;
 import org.junit.jupiter.api.Test;

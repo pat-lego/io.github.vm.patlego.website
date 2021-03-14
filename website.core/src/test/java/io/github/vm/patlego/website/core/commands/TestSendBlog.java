@@ -1,4 +1,4 @@
-package io.github.vm.patlego.commands;
+package io.github.vm.patlego.website.core.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -10,9 +10,9 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import io.github.vm.patlego.config.runmodes.RunMode;
+import io.github.vm.patlego.config.runmodes.RunModes;
 import io.github.vm.patlego.mail.EmailService;
-import io.github.vm.patlego.runmodes.RunMode;
-import io.github.vm.patlego.runmodes.RunModes;
 import io.github.vm.patlego.website.core.blogs.commands.SendBlog;
 import io.github.vm.patlego.website.datasource.blogs.repo.BlogsDS;
 import io.github.vm.patlego.website.datasource.blogs.tables.Blog;
