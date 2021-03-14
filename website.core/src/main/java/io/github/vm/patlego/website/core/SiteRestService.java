@@ -1,4 +1,4 @@
-package io.github.vm.patlego.servlets;
+package io.github.vm.patlego.website.core;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
@@ -11,10 +11,10 @@ import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
 
-import io.github.vm.patlego.datasource.blogs.repo.BlogsDS;
-import io.github.vm.patlego.datasource.subscribe.repo.SubscribeDS;
-import io.github.vm.patlego.servlets.blog.impl.BlogsServiceImpl;
-import io.github.vm.patlego.servlets.subscribe.impl.SubscriberServiceImpl;
+import io.github.vm.patlego.website.datasource.blogs.repo.BlogsDS;
+import io.github.vm.patlego.website.datasource.subscribe.repo.SubscribeDS;
+import io.github.vm.patlego.website.core.blogs.BlogsServiceImpl;
+import io.github.vm.patlego.website.core.subscribe.SubscriberServiceImpl;
 
 @Component
 public class SiteRestService {

@@ -1,4 +1,4 @@
-package io.github.vm.patlego.datasource.subscribe.repo;
+package io.github.vm.patlego.website.datasource.subscribe.repo;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.apache.aries.jpa.template.TransactionType;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-import io.github.vm.patlego.datasource.subscribe.tables.Subscribe;
+import io.github.vm.patlego.website.datasource.subscribe.tables.Subscribe;
 
 @Component(service = SubscribeDS.class, immediate = true)
 public class SubscribeDSImpl implements SubscribeDS {

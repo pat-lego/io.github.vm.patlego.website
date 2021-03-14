@@ -7,9 +7,10 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import io.github.vm.patlego.datasource.subscribe.repo.SubscribeDS;
-import io.github.vm.patlego.datasource.subscribe.tables.Subscribe;
-import io.github.vm.patlego.servlets.subscribe.impl.SubscriberServiceImpl;
+import io.github.vm.patlego.website.core.subscribe.SubscriberServiceImpl;
+import io.github.vm.patlego.website.datasource.subscribe.repo.SubscribeDS;
+import io.github.vm.patlego.website.datasource.subscribe.tables.Subscribe;
+
 
 public class TestSubscriberServiceImpl {
 

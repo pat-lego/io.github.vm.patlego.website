@@ -10,13 +10,14 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import io.github.vm.patlego.datasource.blogs.repo.BlogsDS;
-import io.github.vm.patlego.datasource.blogs.tables.Blog;
-import io.github.vm.patlego.datasource.subscribe.repo.SubscribeDS;
-import io.github.vm.patlego.datasource.subscribe.tables.Subscribe;
 import io.github.vm.patlego.mail.EmailService;
 import io.github.vm.patlego.runmodes.RunMode;
 import io.github.vm.patlego.runmodes.RunModes;
+import io.github.vm.patlego.website.core.blogs.commands.SendBlog;
+import io.github.vm.patlego.website.datasource.blogs.repo.BlogsDS;
+import io.github.vm.patlego.website.datasource.blogs.tables.Blog;
+import io.github.vm.patlego.website.datasource.subscribe.repo.SubscribeDS;
+import io.github.vm.patlego.website.datasource.subscribe.tables.Subscribe;
 
 public class TestSendBlog {
 

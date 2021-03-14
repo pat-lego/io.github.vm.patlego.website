@@ -6,7 +6,7 @@ import javax.mail.internet.AddressException;
 
 import org.junit.jupiter.api.Test;
 
-import io.github.vm.patlego.impl.blogs.DefaultEmailRecipient;
+import io.github.vm.patlego.website.core.blogs.DefaultEmailRecipient;
 
 public class TestDefaultEmailRecipient {
 

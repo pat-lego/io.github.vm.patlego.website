@@ -1,4 +1,4 @@
-package io.github.vm.patlego.datasource.subscribe.tables;
+package io.github.vm.patlego.website.datasource.subscribe.tables;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

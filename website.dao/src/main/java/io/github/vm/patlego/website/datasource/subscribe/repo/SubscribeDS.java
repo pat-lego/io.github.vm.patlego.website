@@ -1,8 +1,8 @@
-package io.github.vm.patlego.datasource.subscribe.repo;
+package io.github.vm.patlego.website.datasource.subscribe.repo;
 
 import java.util.List;
 
-import io.github.vm.patlego.datasource.subscribe.tables.Subscribe;
+import io.github.vm.patlego.website.datasource.subscribe.tables.Subscribe;
 
 public interface SubscribeDS {
 

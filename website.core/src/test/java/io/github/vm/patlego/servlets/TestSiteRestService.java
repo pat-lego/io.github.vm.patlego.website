@@ -4,8 +4,10 @@ import org.apache.cxf.endpoint.Server;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import io.github.vm.patlego.datasource.blogs.repo.BlogsDS;
-import io.github.vm.patlego.datasource.subscribe.repo.SubscribeDS;
+import io.github.vm.patlego.website.core.SiteRestService;
+import io.github.vm.patlego.website.datasource.blogs.repo.BlogsDS;
+import io.github.vm.patlego.website.datasource.subscribe.repo.SubscribeDS;
+
 
 public class TestSiteRestService {
 

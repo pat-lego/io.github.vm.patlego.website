@@ -1,8 +1,8 @@
-package io.github.vm.patlego.datasource.blogs.repo;
+package io.github.vm.patlego.website.datasource.blogs.repo;
 
 import java.util.List;
 
-import io.github.vm.patlego.datasource.blogs.tables.Blog;
+import io.github.vm.patlego.website.datasource.blogs.tables.Blog;
 
 public interface BlogsDS {
 

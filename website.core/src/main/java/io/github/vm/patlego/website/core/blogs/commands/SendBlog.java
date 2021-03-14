@@ -1,4 +1,4 @@
-package io.github.vm.patlego.commands;
+package io.github.vm.patlego.website.core.blogs.commands;
 
 import org.apache.karaf.shell.api.action.Action;
 import org.apache.karaf.shell.api.action.Argument;
@@ -8,14 +8,14 @@ import org.apache.karaf.shell.api.action.lifecycle.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.github.vm.patlego.datasource.blogs.repo.BlogsDS;
-import io.github.vm.patlego.datasource.subscribe.repo.SubscribeDS;
-import io.github.vm.patlego.datasource.subscribe.tables.Subscribe;
+import io.github.vm.patlego.website.datasource.blogs.repo.BlogsDS;
+import io.github.vm.patlego.website.datasource.subscribe.repo.SubscribeDS;
+import io.github.vm.patlego.website.datasource.subscribe.tables.Subscribe;
 import io.github.vm.patlego.mail.EmailService;
 import io.github.vm.patlego.mail.bean.EmailContent;
 import io.github.vm.patlego.mail.template.Templater;
-import io.github.vm.patlego.impl.blogs.BlogTemplater;
-import io.github.vm.patlego.impl.blogs.DefaultEmailRecipient;
+import io.github.vm.patlego.website.core.blogs.BlogTemplater;
+import io.github.vm.patlego.website.core.blogs.DefaultEmailRecipient;
 import io.github.vm.patlego.runmodes.RunMode;
 import io.github.vm.patlego.urls.ProdSystemURL;
 import io.github.vm.patlego.urls.DevSystemURL;

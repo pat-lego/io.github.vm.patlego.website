@@ -1,4 +1,4 @@
-package io.github.vm.patlego.servlets.blog.impl;
+package io.github.vm.patlego.website.core.blogs;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -8,10 +8,10 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 
-import io.github.vm.patlego.datasource.blogs.repo.BlogsDS;
-import io.github.vm.patlego.datasource.blogs.tables.Blog;
-import io.github.vm.patlego.servlets.blog.BlogServletPath;
-import io.github.vm.patlego.servlets.blog.BlogsService;
+import io.github.vm.patlego.website.datasource.blogs.repo.BlogsDS;
+import io.github.vm.patlego.website.datasource.blogs.tables.Blog;
+import io.github.vm.patlego.website.core.blogs.BlogServletPath;
+import io.github.vm.patlego.website.core.blogs.BlogsService;
 
 @Path(BlogServletPath.BLOG_METHOD_PATH)
 public class BlogsServiceImpl implements BlogsService {

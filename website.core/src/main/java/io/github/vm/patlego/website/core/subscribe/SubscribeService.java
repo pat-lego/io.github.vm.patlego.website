@@ -1,8 +1,8 @@
-package io.github.vm.patlego.servlets.subscribe;
+package io.github.vm.patlego.website.core.subscribe;
 
 import java.io.IOException;
 
-import io.github.vm.patlego.datasource.subscribe.tables.Subscribe;
+import io.github.vm.patlego.website.datasource.subscribe.tables.Subscribe;
 
 public interface SubscribeService {
     

@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import io.github.vm.patlego.datasource.blogs.repo.BlogsDS;
-import io.github.vm.patlego.datasource.blogs.tables.Blog;
-import io.github.vm.patlego.servlets.blog.impl.BlogsServiceImpl;
+import io.github.vm.patlego.website.core.blogs.BlogsServiceImpl;
+import io.github.vm.patlego.website.datasource.blogs.repo.BlogsDS;
+import io.github.vm.patlego.website.datasource.blogs.tables.Blog;
+
+
 
 public class TestBlogServiceImpl {
 

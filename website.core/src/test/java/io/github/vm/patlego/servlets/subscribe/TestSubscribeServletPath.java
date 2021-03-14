@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
+import io.github.vm.patlego.website.core.subscribe.SubscribeServletPath;
+
 public class TestSubscribeServletPath {
 
     @Test

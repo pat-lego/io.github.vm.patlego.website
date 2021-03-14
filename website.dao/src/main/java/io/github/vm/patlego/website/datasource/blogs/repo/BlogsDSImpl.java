@@ -1,4 +1,4 @@
-package io.github.vm.patlego.datasource.blogs.repo;
+package io.github.vm.patlego.website.datasource.blogs.repo;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.github.vm.patlego.datasource.blogs.tables.Blog;
+import io.github.vm.patlego.website.datasource.blogs.tables.Blog;
 
 @Component(service = BlogsDS.class, immediate = true)
 public class BlogsDSImpl implements BlogsDS {

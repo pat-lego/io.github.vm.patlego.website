@@ -1,4 +1,4 @@
-package io.github.vm.patlego.impl.blogs;
+package io.github.vm.patlego.website.core.blogs;
 
 import io.github.vm.patlego.mail.bean.EmailRecipient;
 
