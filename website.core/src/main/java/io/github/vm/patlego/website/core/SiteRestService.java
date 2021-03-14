@@ -13,8 +13,8 @@ import org.osgi.service.component.annotations.Reference;
 
 import io.github.vm.patlego.website.datasource.blogs.repo.BlogsDS;
 import io.github.vm.patlego.website.datasource.subscribe.repo.SubscribeDS;
-import io.github.vm.patlego.website.core.blogs.BlogsServiceImpl;
-import io.github.vm.patlego.website.core.subscribe.SubscriberServiceImpl;
+import io.github.vm.patlego.website.core.blogs.servlets.BlogsServiceServlet;
+import io.github.vm.patlego.website.core.subscribe.servlets.SubscriberServiceServlet;
 
 @Component
 public class SiteRestService {
@@ -33,8 +33,8 @@ public class SiteRestService {
         bean.setAddress(SiteServletPath.SITE_CLASS_PATH);
         bean.setBus(BusFactory.getDefaultBus());
         bean.setProvider(new JacksonJsonProvider());
-        bean.setServiceBean(new BlogsServiceImpl(blogsDS));
-        bean.setServiceBean(new SubscriberServiceImpl(subscribeDS));
+        bean.setServiceBean(new BlogsServiceServlet(blogsDS));
+        bean.setServiceBean(new SubscriberServiceServlet(subscribeDS));
         server = bean.create();
     }
 

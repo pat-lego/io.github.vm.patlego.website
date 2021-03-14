@@ -1,4 +1,4 @@
-package io.github.vm.patlego.website.core.blogs;
+package io.github.vm.patlego.website.core.blogs.servlets;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -10,15 +10,17 @@ import javax.ws.rs.GET;
 
 import io.github.vm.patlego.website.datasource.blogs.repo.BlogsDS;
 import io.github.vm.patlego.website.datasource.blogs.tables.Blog;
-import io.github.vm.patlego.website.core.blogs.BlogServletPath;
+
 import io.github.vm.patlego.website.core.blogs.BlogsService;
 
+import io.github.vm.patlego.website.core.blogs.BlogServletPath;
+
 @Path(BlogServletPath.BLOG_METHOD_PATH)
-public class BlogsServiceImpl implements BlogsService {
+public class BlogsServiceServlet implements BlogsService {
 
     private BlogsDS blogsDS;
 
-    public BlogsServiceImpl(BlogsDS ds) {
+    public BlogsServiceServlet(BlogsDS ds) {
         this.blogsDS = ds;
     }
 

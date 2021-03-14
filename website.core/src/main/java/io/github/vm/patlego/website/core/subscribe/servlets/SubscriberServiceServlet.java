@@ -1,4 +1,4 @@
-package io.github.vm.patlego.website.core.subscribe;
+package io.github.vm.patlego.website.core.subscribe.servlets;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -14,15 +14,18 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.IOUtils;
 
+import io.github.vm.patlego.website.core.subscribe.SubscribeService;
 import io.github.vm.patlego.website.datasource.subscribe.repo.SubscribeDS;
 import io.github.vm.patlego.website.datasource.subscribe.tables.Subscribe;
 
+import io.github.vm.patlego.website.core.subscribe.SubscribeServletPath;
+
 @Path(SubscribeServletPath.SUBSCRIBE_METHOD_PATH)
-public class SubscriberServiceImpl implements SubscribeService {
+public class SubscriberServiceServlet implements SubscribeService {
 
     private SubscribeDS ds;
 
-    public SubscriberServiceImpl(SubscribeDS subscribeDS) {
+    public SubscriberServiceServlet(SubscribeDS subscribeDS) {
         this.ds = subscribeDS;
     }
 

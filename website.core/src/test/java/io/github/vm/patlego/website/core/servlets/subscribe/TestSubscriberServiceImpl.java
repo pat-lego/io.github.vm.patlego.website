@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import io.github.vm.patlego.website.core.subscribe.SubscriberServiceImpl;
+import io.github.vm.patlego.website.core.subscribe.servlets.SubscriberServiceServlet;
 import io.github.vm.patlego.website.datasource.subscribe.repo.SubscribeDS;
 import io.github.vm.patlego.website.datasource.subscribe.tables.Subscribe;
 
@@ -21,7 +21,7 @@ public class TestSubscriberServiceImpl {
 
         Mockito.when(ds.createSubscription(subscriber)).thenReturn(subscriber);
 
-        SubscriberServiceImpl subscriberServiceImpl = new SubscriberServiceImpl(ds);
+        SubscriberServiceServlet subscriberServiceImpl = new SubscriberServiceServlet(ds);
 
         assertNotNull(subscriberServiceImpl.addSubscription(subscriber));
     }
@@ -33,7 +33,7 @@ public class TestSubscriberServiceImpl {
 
         Mockito.when(ds.deleteSubscription(subscriber)).thenReturn(subscriber);
 
-        SubscriberServiceImpl subscriberServiceImpl = new SubscriberServiceImpl(ds);
+        SubscriberServiceServlet subscriberServiceImpl = new SubscriberServiceServlet(ds);
 
         assertNotNull(subscriberServiceImpl.deleteSubscription(subscriber));
     }
@@ -44,7 +44,7 @@ public class TestSubscriberServiceImpl {
 
         Mockito.when(ds.deleteSubscription(Mockito.any())).thenThrow(IllegalArgumentException.class);
         
-        SubscriberServiceImpl subscriberServiceImpl = new SubscriberServiceImpl(ds);
+        SubscriberServiceServlet subscriberServiceImpl = new SubscriberServiceServlet(ds);
 
         assertNotNull(subscriberServiceImpl.deleteSubscription("pat@pat.com"));
     }
@@ -56,7 +56,7 @@ public class TestSubscriberServiceImpl {
 
         Mockito.when(ds.deleteSubscription(subscriber)).thenReturn(subscriber);
         
-        SubscriberServiceImpl subscriberServiceImpl = new SubscriberServiceImpl(ds);
+        SubscriberServiceServlet subscriberServiceImpl = new SubscriberServiceServlet(ds);
 
         assertNotNull(subscriberServiceImpl.deleteSubscription("pat@pat.com"));
     }
