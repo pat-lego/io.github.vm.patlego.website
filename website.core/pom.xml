@@ -57,7 +57,7 @@
             <Export-Package>
               io.github.vm.patlego.website.core.blogs.*,
               io.github.vm.patlego.website.core.subscribe.*,
-              io.github.vm.patlego.impl.*,
+              io.github.vm.patlego.website.core.*,
             </Export-Package>
             <!-- Enable processing of OSGI DS component annotations -->
             <_dsannotations>*</_dsannotations>
