@@ -47,7 +47,7 @@
           <exportScr>true</exportScr>
           <instructions>
             <Private-Package>
-              io.github.vm.patlego.commands
+              io.github.vm.patlego.website.core.blogs.commands
             </Private-Package>
             <Import-Package>
               !javax.annotation,
@@ -55,7 +55,8 @@
               *
             </Import-Package>
             <Export-Package>
-              io.github.vm.patlego.servlets.*,
+              io.github.vm.patlego.webiste.core.blogs.servlets.*,
+              io.github.vm.patlego.webiste.core.subscribe.servlets.*,
               io.github.vm.patlego.impl.*,
             </Export-Package>
             <!-- Enable processing of OSGI DS component annotations -->
